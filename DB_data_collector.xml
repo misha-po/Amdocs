@@ -2,7 +2,7 @@
 <template encoding-version="1.2">
     <description></description>
     <groupId>7c84501d-d10c-407c-b9f3-1d80e38fe36a</groupId>
-    <name>Db_parser</name>
+    <name>db_parse_10/10</name>
     <snippet>
         <processGroups>
             <id>31e38074-4651-3eaf-0000-000000000000</id>
@@ -1921,7 +1921,7 @@
     </entry>
     <entry>
         <key>Directory</key>
-        <value>/nifis_home/${db_type}/${schema}/${table_name}</value>
+        <value>/RawZone/${db_type}/${schema}/${table_name}</value>
     </entry>
     <entry>
         <key>Conflict Resolution Strategy</key>
@@ -1965,7 +1965,7 @@
 <autoTerminate>true</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>STOPPED</state>
+                            <state>RUNNING</state>
                             <style/>
                             <type>org.apache.nifi.processors.hadoop.PutHDFS</type>
                         </processors>
@@ -4442,11 +4442,11 @@
     </entry>
     <entry>
         <key>Directory</key>
-        <value>/nifis_home/${db_type}/${schema}/${table_name}</value>
+        <value>/RawZone/${db_type}/${schema}/${table_name}</value>
     </entry>
     <entry>
         <key>Conflict Resolution Strategy</key>
-        <value>fail</value>
+        <value>replace</value>
     </entry>
     <entry>
         <key>Block Size</key>
@@ -6489,11 +6489,11 @@
     </entry>
     <entry>
         <key>Directory</key>
-        <value>/nifis_home/${db_type}/${schema}/${table_name}</value>
+        <value>/RawZone/${db_type}/${schema}/${table_name}</value>
     </entry>
     <entry>
         <key>Conflict Resolution Strategy</key>
-        <value>fail</value>
+        <value>replace</value>
     </entry>
     <entry>
         <key>Block Size</key>
@@ -7498,11 +7498,11 @@
     </entry>
     <entry>
         <key>Directory</key>
-        <value>/nifis_home/${db_type}/${schema}/${table_name}</value>
+        <value>/RawZone/${db_type}/${schema}/${table_name}</value>
     </entry>
     <entry>
         <key>Conflict Resolution Strategy</key>
-        <value>fail</value>
+        <value>replace</value>
     </entry>
     <entry>
         <key>Block Size</key>
@@ -8225,6 +8225,18 @@
         </value>
     </entry>
     <entry>
+        <key>columns_description</key>
+        <value>
+            <name>columns_description</name>
+        </value>
+    </entry>
+    <entry>
+        <key>table_description</key>
+        <value>
+            <name>table_description</name>
+        </value>
+    </entry>
+    <entry>
         <key>table_name</key>
         <value>
             <name>table_name</name>
@@ -8260,6 +8272,14 @@
     <entry>
         <key>columns</key>
         <value>$.column_list[*].name</value>
+    </entry>
+    <entry>
+        <key>columns_description</key>
+        <value>$.column_list[*].description</value>
+    </entry>
+    <entry>
+        <key>table_description</key>
+        <value>$.description</value>
     </entry>
     <entry>
         <key>table_name</key>
@@ -8602,7 +8622,7 @@
                         <autoTerminate>true</autoTerminate>
                         <name>unmatched</name>
                     </relationships>
-                    <state>RUNNING</state>
+                    <state>STOPPED</state>
                     <style/>
                     <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
                 </processors>
@@ -8914,10 +8934,116 @@
                     <style/>
                     <type>org.apache.nifi.processors.standard.GetSFTP</type>
                 </processors>
+                <processors>
+                    <id>df283a7a-c6d4-3c17-0000-000000000000</id>
+                    <parentGroupId>31e38074-4651-3eaf-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>502.36003102732866</x>
+                        <y>772.3105845332185</y>
+                    </position>
+                    <bundle>
+                        <artifact>nifi-scripting-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.7.0.3.2.0.0-520</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>Script Engine</key>
+<value>
+    <name>Script Engine</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Script File</key>
+<value>
+    <name>Script File</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Script Body</key>
+<value>
+    <name>Script Body</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Module Directory</key>
+<value>
+    <name>Module Directory</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>Script Engine</key>
+<value>python</value>
+                            </entry>
+                            <entry>
+<key>Script File</key>
+                            </entry>
+                            <entry>
+<key>Script Body</key>
+<value> #i need to take the flow file and take all of its attributes and create a
+# json that contain its data according to the entities and send it via post request to the atlas API
+import atlasclient
+
+
+
+flowfile=session.get()
+db_type=flowfile.getAttribute('db_type')
+db_schema=flowfile.getAttribute('schema')
+table_description=flowfile.getAttribute('table_description')
+#### post to atlas db_type,db_schema,table_desc as RDB_DESCRIPTOR
+
+### post to atlas DATA_SOURCE_TYPE = db_type
+
+###### db server name??
+
+
+columns=flowfile.getAttribute('columns')
+columns_description=flowfile.getAttribute('columns_description')
+table_name=flowfile.getAttribute('table_name')
+
+
+for colNum in range(0,len(columns)):
+#   db_column_type-columns[colNum],columns_description[colNum]
+
+
+</value>
+                            </entry>
+                            <entry>
+<key>Module Directory</key>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>ExecuteScript</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <type>org.apache.nifi.processors.script.ExecuteScript</type>
+                </processors>
             </contents>
             <name>DB_conf</name>
             <variables/>
         </processGroups>
     </snippet>
-    <timestamp>10/09/2018 20:29:44 IDT</timestamp>
+    <timestamp>10/10/2018 18:50:03 IDT</timestamp>
 </template>
