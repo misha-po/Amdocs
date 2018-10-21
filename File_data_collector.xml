@@ -1,0 +1,5004 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template encoding-version="1.2">
+    <description></description>
+    <groupId>7c84501d-d10c-407c-b9f3-1d80e38fe36a</groupId>
+    <name>file_parse18.10</name>
+    <snippet>
+        <processGroups>
+            <id>acc42885-6d88-30d6-0000-000000000000</id>
+            <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
+            <position>
+                <x>0.0</x>
+                <y>0.0</y>
+            </position>
+            <comments></comments>
+            <contents>
+                <connections>
+                    <id>4e70b6c0-f63d-3df4-0000-000000000000</id>
+                    <parentGroupId>acc42885-6d88-30d6-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+                        <id>5d118c19-d1c7-3a78-0000-000000000000</id>
+                        <type>INPUT_PORT</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <source>
+                        <groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+                        <id>948d2a2e-b8ba-3261-0000-000000000000</id>
+                        <type>OUTPUT_PORT</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>6daceeeb-15f7-32d5-0000-000000000000</id>
+                    <parentGroupId>acc42885-6d88-30d6-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>9714544a-bb50-317a-0000-000000000000</groupId>
+                        <id>7b8504d8-0b59-387c-0000-000000000000</id>
+                        <type>INPUT_PORT</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <source>
+                        <groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+                        <id>7f6394f3-0be6-3756-0000-000000000000</id>
+                        <type>OUTPUT_PORT</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>6dd82dbb-3923-39fb-0000-000000000000</id>
+                    <parentGroupId>acc42885-6d88-30d6-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>509d2785-f1bd-3a87-0000-000000000000</groupId>
+                        <id>955d062d-6b63-3276-0000-000000000000</id>
+                        <type>INPUT_PORT</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <source>
+                        <groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+                        <id>239c9f5f-b687-3829-0000-000000000000</id>
+                        <type>OUTPUT_PORT</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>9b2eea55-77f7-340b-0000-000000000000</id>
+                    <parentGroupId>acc42885-6d88-30d6-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+                        <id>c93b9695-9dc2-385f-0000-000000000000</id>
+                        <type>INPUT_PORT</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>acc42885-6d88-30d6-0000-000000000000</groupId>
+                        <id>a99b1ba6-a6be-3198-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <processGroups>
+                    <id>2ea47be8-b439-30e2-0000-000000000000</id>
+                    <parentGroupId>acc42885-6d88-30d6-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>809.0</x>
+                        <y>605.0</y>
+                    </position>
+                    <comments></comments>
+                    <contents>
+                        <connections>
+                            <id>16571460-e963-3417-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>3f749b68-6db1-3eeb-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>4e8545c0-2ec9-3144-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>204d8eff-0480-3672-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>a1bf7599-2b1c-3f91-0000-000000000000</id>
+<type>OUTPUT_PORT</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>86633657-507b-38a8-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>2bb1ce7e-86d4-3645-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>d1b45797-6e13-39ad-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <source>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>5d118c19-d1c7-3a78-0000-000000000000</id>
+<type>INPUT_PORT</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>389fa070-1f0f-3e48-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>86633657-507b-38a8-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>3f749b68-6db1-3eeb-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>5ee6a7b2-46bd-3473-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>36f3f467-90d5-3ba8-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>cbcd58d8-cf30-37b8-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>80271a4d-b38c-32bb-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>2b319b7b-3320-3c27-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>incompatible</selectedRelationships>
+                            <source>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>3f749b68-6db1-3eeb-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>abc2d3ba-bddb-3a20-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <bends>
+<x>1319.1982038067094</x>
+<y>896.1986312952811</y>
+                            </bends>
+                            <destination>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>2b319b7b-3320-3c27-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>failure</selectedRelationships>
+                            <source>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>3f749b68-6db1-3eeb-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>c4bffb62-2b94-38af-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>5ab8a2d5-ed1e-33b3-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>d1b45797-6e13-39ad-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>d885332e-eeb0-359d-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>4e8545c0-2ec9-3144-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>5ab8a2d5-ed1e-33b3-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>f51a0b4e-f985-3757-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>cbcd58d8-cf30-37b8-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>2ea47be8-b439-30e2-0000-000000000000</groupId>
+<id>2b319b7b-3320-3c27-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <inputPorts>
+                            <id>5d118c19-d1c7-3a78-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <position>
+<x>1512.406922287351</x>
+<y>256.44612509546704</y>
+                            </position>
+                            <comments></comments>
+                            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                            <name>Parsed</name>
+                            <state>STOPPED</state>
+                            <type>INPUT_PORT</type>
+                        </inputPorts>
+                        <outputPorts>
+                            <id>a1bf7599-2b1c-3f91-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <position>
+<x>907.1909634160402</x>
+<y>1287.2986076086522</y>
+                            </position>
+                            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                            <name>schema</name>
+                            <state>STOPPED</state>
+                            <type>OUTPUT_PORT</type>
+                            <validationErrors>'Port 'schema'' is invalid because Output connection for port 'schema' is not defined.</validationErrors>
+                        </outputPorts>
+                        <processors>
+                            <id>2b319b7b-3320-3c27-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <position>
+<x>1456.494945409214</x>
+<y>779.4744720632184</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Regular Expression</key>
+        <value>
+            <name>Regular Expression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Replacement Value</key>
+        <value>
+            <name>Replacement Value</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Character Set</key>
+        <value>
+            <name>Character Set</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum Buffer Size</key>
+        <value>
+            <name>Maximum Buffer Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Replacement Strategy</key>
+        <value>
+            <name>Replacement Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Evaluation Mode</key>
+        <value>
+            <name>Evaluation Mode</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Regular Expression</key>
+        <value>$.*</value>
+    </entry>
+    <entry>
+        <key>Replacement Value</key>
+        <value>${errors}</value>
+    </entry>
+    <entry>
+        <key>Character Set</key>
+        <value>UTF-8</value>
+    </entry>
+    <entry>
+        <key>Maximum Buffer Size</key>
+        <value>1 MB</value>
+    </entry>
+    <entry>
+        <key>Replacement Strategy</key>
+        <value>Regex Replace</value>
+    </entry>
+    <entry>
+        <key>Evaluation Mode</key>
+        <value>Entire text</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>ReplaceText</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.ReplaceText</type>
+                        </processors>
+                        <processors>
+                            <id>36f3f467-90d5-3ba8-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <position>
+<x>1456.494945409214</x>
+<y>1196.8297729492188</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Hostname</key>
+        <value>
+            <name>Hostname</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Port</key>
+        <value>
+            <name>Port</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Username</key>
+        <value>
+            <name>Username</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Password</key>
+        <value>
+            <name>Password</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Private Key Path</key>
+        <value>
+            <name>Private Key Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Private Key Passphrase</key>
+        <value>
+            <name>Private Key Passphrase</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Path</key>
+        <value>
+            <name>Remote Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Create Directory</key>
+        <value>
+            <name>Create Directory</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Disable Directory Listing</key>
+        <value>
+            <name>Disable Directory Listing</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Batch Size</key>
+        <value>
+            <name>Batch Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Connection Timeout</key>
+        <value>
+            <name>Connection Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Data Timeout</key>
+        <value>
+            <name>Data Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution</key>
+        <value>
+            <name>Conflict Resolution</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Reject Zero-Byte Files</key>
+        <value>
+            <name>Reject Zero-Byte Files</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Dot Rename</key>
+        <value>
+            <name>Dot Rename</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Temporary Filename</key>
+        <value>
+            <name>Temporary Filename</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Host Key File</key>
+        <value>
+            <name>Host Key File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Last Modified Time</key>
+        <value>
+            <name>Last Modified Time</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Permissions</key>
+        <value>
+            <name>Permissions</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+        <value>
+            <name>Remote Owner</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+        <value>
+            <name>Remote Group</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Strict Host Key Checking</key>
+        <value>
+            <name>Strict Host Key Checking</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Send Keep Alive On Timeout</key>
+        <value>
+            <name>Send Keep Alive On Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Use Compression</key>
+        <value>
+            <name>Use Compression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>proxy-configuration-service</key>
+        <value>
+            <identifiesControllerService>org.apache.nifi.proxy.ProxyConfigurationService</identifiesControllerService>
+            <name>proxy-configuration-service</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Type</key>
+        <value>
+            <name>Proxy Type</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Host</key>
+        <value>
+            <name>Proxy Host</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Port</key>
+        <value>
+            <name>Proxy Port</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Http Proxy Username</key>
+        <value>
+            <name>Http Proxy Username</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Http Proxy Password</key>
+        <value>
+            <name>Http Proxy Password</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Hostname</key>
+        <value>illincdpsl01</value>
+    </entry>
+    <entry>
+        <key>Port</key>
+        <value>22</value>
+    </entry>
+    <entry>
+        <key>Username</key>
+        <value>root</value>
+    </entry>
+    <entry>
+        <key>Password</key>
+    </entry>
+    <entry>
+        <key>Private Key Path</key>
+    </entry>
+    <entry>
+        <key>Private Key Passphrase</key>
+    </entry>
+    <entry>
+        <key>Remote Path</key>
+        <value>/lior/</value>
+    </entry>
+    <entry>
+        <key>Create Directory</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Disable Directory Listing</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Batch Size</key>
+        <value>500</value>
+    </entry>
+    <entry>
+        <key>Connection Timeout</key>
+        <value>30 sec</value>
+    </entry>
+    <entry>
+        <key>Data Timeout</key>
+        <value>30 sec</value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution</key>
+        <value>NONE</value>
+    </entry>
+    <entry>
+        <key>Reject Zero-Byte Files</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Dot Rename</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Temporary Filename</key>
+    </entry>
+    <entry>
+        <key>Host Key File</key>
+    </entry>
+    <entry>
+        <key>Last Modified Time</key>
+    </entry>
+    <entry>
+        <key>Permissions</key>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+    </entry>
+    <entry>
+        <key>Strict Host Key Checking</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Send Keep Alive On Timeout</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Use Compression</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>proxy-configuration-service</key>
+    </entry>
+    <entry>
+        <key>Proxy Type</key>
+        <value>DIRECT</value>
+    </entry>
+    <entry>
+        <key>Proxy Host</key>
+    </entry>
+    <entry>
+        <key>Proxy Port</key>
+    </entry>
+    <entry>
+        <key>Http Proxy Username</key>
+    </entry>
+    <entry>
+        <key>Http Proxy Password</key>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>PutSFTP</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>reject</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.PutSFTP</type>
+                        </processors>
+                        <processors>
+                            <id>3f749b68-6db1-3eeb-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <position>
+<x>845.1799935764136</x>
+<y>780.53125</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-kite-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Hadoop configuration files</key>
+        <value>
+            <name>Hadoop configuration files</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Record schema</key>
+        <value>
+            <name>Record schema</name>
+        </value>
+    </entry>
+    <entry>
+        <key>CSV charset</key>
+        <value>
+            <name>CSV charset</name>
+        </value>
+    </entry>
+    <entry>
+        <key>CSV delimiter</key>
+        <value>
+            <name>CSV delimiter</name>
+        </value>
+    </entry>
+    <entry>
+        <key>CSV quote character</key>
+        <value>
+            <name>CSV quote character</name>
+        </value>
+    </entry>
+    <entry>
+        <key>CSV escape character</key>
+        <value>
+            <name>CSV escape character</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Use CSV header line</key>
+        <value>
+            <name>Use CSV header line</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Lines to skip</key>
+        <value>
+            <name>Lines to skip</name>
+        </value>
+    </entry>
+    <entry>
+        <key>kite-compression-type</key>
+        <value>
+            <name>kite-compression-type</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Hadoop configuration files</key>
+    </entry>
+    <entry>
+        <key>Record schema</key>
+        <value>${inferred.avro.schema}</value>
+    </entry>
+    <entry>
+        <key>CSV charset</key>
+        <value>utf8</value>
+    </entry>
+    <entry>
+        <key>CSV delimiter</key>
+        <value>,</value>
+    </entry>
+    <entry>
+        <key>CSV quote character</key>
+        <value>"</value>
+    </entry>
+    <entry>
+        <key>CSV escape character</key>
+        <value>\</value>
+    </entry>
+    <entry>
+        <key>Use CSV header line</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Lines to skip</key>
+        <value>0</value>
+    </entry>
+    <entry>
+        <key>kite-compression-type</key>
+        <value>SNAPPY</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>ConvertCSVToAvro</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>incompatible</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.kite.ConvertCSVToAvro</type>
+                        </processors>
+                        <processors>
+                            <id>4e8545c0-2ec9-3144-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <position>
+<x>1456.5210187481157</x>
+<y>580.9182281494141</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-kite-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Schema Output Destination</key>
+        <value>
+            <name>Schema Output Destination</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Input Content Type</key>
+        <value>
+            <name>Input Content Type</name>
+        </value>
+    </entry>
+    <entry>
+        <key>CSV Header Definition</key>
+        <value>
+            <name>CSV Header Definition</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Get CSV Header Definition From Data</key>
+        <value>
+            <name>Get CSV Header Definition From Data</name>
+        </value>
+    </entry>
+    <entry>
+        <key>CSV Header Line Skip Count</key>
+        <value>
+            <name>CSV Header Line Skip Count</name>
+        </value>
+    </entry>
+    <entry>
+        <key>CSV delimiter</key>
+        <value>
+            <name>CSV delimiter</name>
+        </value>
+    </entry>
+    <entry>
+        <key>CSV Escape String</key>
+        <value>
+            <name>CSV Escape String</name>
+        </value>
+    </entry>
+    <entry>
+        <key>CSV Quote String</key>
+        <value>
+            <name>CSV Quote String</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Pretty Avro Output</key>
+        <value>
+            <name>Pretty Avro Output</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Avro Record Name</key>
+        <value>
+            <name>Avro Record Name</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Number Of Records To Analyze</key>
+        <value>
+            <name>Number Of Records To Analyze</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Charset</key>
+        <value>
+            <name>Charset</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Schema Output Destination</key>
+        <value>flowfile-attribute</value>
+    </entry>
+    <entry>
+        <key>Input Content Type</key>
+        <value>csv</value>
+    </entry>
+    <entry>
+        <key>CSV Header Definition</key>
+    </entry>
+    <entry>
+        <key>Get CSV Header Definition From Data</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>CSV Header Line Skip Count</key>
+        <value>0</value>
+    </entry>
+    <entry>
+        <key>CSV delimiter</key>
+        <value>,</value>
+    </entry>
+    <entry>
+        <key>CSV Escape String</key>
+        <value>\</value>
+    </entry>
+    <entry>
+        <key>CSV Quote String</key>
+        <value>'</value>
+    </entry>
+    <entry>
+        <key>Pretty Avro Output</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Avro Record Name</key>
+        <value>schema</value>
+    </entry>
+    <entry>
+        <key>Number Of Records To Analyze</key>
+        <value>10</value>
+    </entry>
+    <entry>
+        <key>Charset</key>
+        <value>UTF-8</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>InferAvroSchema</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>original</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>unsupported content</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.kite.InferAvroSchema</type>
+                        </processors>
+                        <processors>
+                            <id>5ab8a2d5-ed1e-33b3-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <position>
+<x>845.1799935764136</x>
+<y>580.9182281494141</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Hostname</key>
+        <value>
+            <name>Hostname</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Port</key>
+        <value>
+            <name>Port</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Username</key>
+        <value>
+            <name>Username</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Password</key>
+        <value>
+            <name>Password</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Private Key Path</key>
+        <value>
+            <name>Private Key Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Private Key Passphrase</key>
+        <value>
+            <name>Private Key Passphrase</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote File</key>
+        <value>
+            <name>Remote File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Completion Strategy</key>
+        <value>
+            <name>Completion Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Move Destination Directory</key>
+        <value>
+            <name>Move Destination Directory</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Create Directory</key>
+        <value>
+            <name>Create Directory</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Disable Directory Listing</key>
+        <value>
+            <name>Disable Directory Listing</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Connection Timeout</key>
+        <value>
+            <name>Connection Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Data Timeout</key>
+        <value>
+            <name>Data Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Send Keep Alive On Timeout</key>
+        <value>
+            <name>Send Keep Alive On Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Host Key File</key>
+        <value>
+            <name>Host Key File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Strict Host Key Checking</key>
+        <value>
+            <name>Strict Host Key Checking</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Use Compression</key>
+        <value>
+            <name>Use Compression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>proxy-configuration-service</key>
+        <value>
+            <identifiesControllerService>org.apache.nifi.proxy.ProxyConfigurationService</identifiesControllerService>
+            <name>proxy-configuration-service</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Type</key>
+        <value>
+            <name>Proxy Type</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Host</key>
+        <value>
+            <name>Proxy Host</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Port</key>
+        <value>
+            <name>Proxy Port</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Http Proxy Username</key>
+        <value>
+            <name>Http Proxy Username</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Http Proxy Password</key>
+        <value>
+            <name>Http Proxy Password</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Hostname</key>
+        <value>${data_source}</value>
+    </entry>
+    <entry>
+        <key>Port</key>
+        <value>22</value>
+    </entry>
+    <entry>
+        <key>Username</key>
+        <value>root</value>
+    </entry>
+    <entry>
+        <key>Password</key>
+    </entry>
+    <entry>
+        <key>Private Key Path</key>
+    </entry>
+    <entry>
+        <key>Private Key Passphrase</key>
+    </entry>
+    <entry>
+        <key>Remote File</key>
+        <value>${file_path}</value>
+    </entry>
+    <entry>
+        <key>Completion Strategy</key>
+        <value>None</value>
+    </entry>
+    <entry>
+        <key>Move Destination Directory</key>
+    </entry>
+    <entry>
+        <key>Create Directory</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Disable Directory Listing</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Connection Timeout</key>
+        <value>30 sec</value>
+    </entry>
+    <entry>
+        <key>Data Timeout</key>
+        <value>30 sec</value>
+    </entry>
+    <entry>
+        <key>Send Keep Alive On Timeout</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Host Key File</key>
+    </entry>
+    <entry>
+        <key>Strict Host Key Checking</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Use Compression</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>proxy-configuration-service</key>
+    </entry>
+    <entry>
+        <key>Proxy Type</key>
+        <value>DIRECT</value>
+    </entry>
+    <entry>
+        <key>Proxy Host</key>
+    </entry>
+    <entry>
+        <key>Proxy Port</key>
+    </entry>
+    <entry>
+        <key>Http Proxy Username</key>
+    </entry>
+    <entry>
+        <key>Http Proxy Password</key>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>FetchSFTP</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>comms.failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>not.found</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>permission.denied</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.FetchSFTP</type>
+                        </processors>
+                        <processors>
+                            <id>86633657-507b-38a8-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <position>
+<x>845.1799935764136</x>
+<y>1044.0295429554483</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Hostname</key>
+        <value>
+            <name>Hostname</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Port</key>
+        <value>
+            <name>Port</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Username</key>
+        <value>
+            <name>Username</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Password</key>
+        <value>
+            <name>Password</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Private Key Path</key>
+        <value>
+            <name>Private Key Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Private Key Passphrase</key>
+        <value>
+            <name>Private Key Passphrase</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Path</key>
+        <value>
+            <name>Remote Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Create Directory</key>
+        <value>
+            <name>Create Directory</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Disable Directory Listing</key>
+        <value>
+            <name>Disable Directory Listing</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Batch Size</key>
+        <value>
+            <name>Batch Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Connection Timeout</key>
+        <value>
+            <name>Connection Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Data Timeout</key>
+        <value>
+            <name>Data Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution</key>
+        <value>
+            <name>Conflict Resolution</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Reject Zero-Byte Files</key>
+        <value>
+            <name>Reject Zero-Byte Files</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Dot Rename</key>
+        <value>
+            <name>Dot Rename</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Temporary Filename</key>
+        <value>
+            <name>Temporary Filename</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Host Key File</key>
+        <value>
+            <name>Host Key File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Last Modified Time</key>
+        <value>
+            <name>Last Modified Time</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Permissions</key>
+        <value>
+            <name>Permissions</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+        <value>
+            <name>Remote Owner</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+        <value>
+            <name>Remote Group</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Strict Host Key Checking</key>
+        <value>
+            <name>Strict Host Key Checking</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Send Keep Alive On Timeout</key>
+        <value>
+            <name>Send Keep Alive On Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Use Compression</key>
+        <value>
+            <name>Use Compression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>proxy-configuration-service</key>
+        <value>
+            <identifiesControllerService>org.apache.nifi.proxy.ProxyConfigurationService</identifiesControllerService>
+            <name>proxy-configuration-service</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Type</key>
+        <value>
+            <name>Proxy Type</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Host</key>
+        <value>
+            <name>Proxy Host</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Port</key>
+        <value>
+            <name>Proxy Port</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Http Proxy Username</key>
+        <value>
+            <name>Http Proxy Username</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Http Proxy Password</key>
+        <value>
+            <name>Http Proxy Password</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Hostname</key>
+        <value>illincdpsl01</value>
+    </entry>
+    <entry>
+        <key>Port</key>
+        <value>22</value>
+    </entry>
+    <entry>
+        <key>Username</key>
+        <value>root</value>
+    </entry>
+    <entry>
+        <key>Password</key>
+    </entry>
+    <entry>
+        <key>Private Key Path</key>
+    </entry>
+    <entry>
+        <key>Private Key Passphrase</key>
+    </entry>
+    <entry>
+        <key>Remote Path</key>
+        <value>/lior/</value>
+    </entry>
+    <entry>
+        <key>Create Directory</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Disable Directory Listing</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Batch Size</key>
+        <value>500</value>
+    </entry>
+    <entry>
+        <key>Connection Timeout</key>
+        <value>30 sec</value>
+    </entry>
+    <entry>
+        <key>Data Timeout</key>
+        <value>30 sec</value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution</key>
+        <value>NONE</value>
+    </entry>
+    <entry>
+        <key>Reject Zero-Byte Files</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Dot Rename</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Temporary Filename</key>
+    </entry>
+    <entry>
+        <key>Host Key File</key>
+    </entry>
+    <entry>
+        <key>Last Modified Time</key>
+    </entry>
+    <entry>
+        <key>Permissions</key>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+    </entry>
+    <entry>
+        <key>Strict Host Key Checking</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Send Keep Alive On Timeout</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Use Compression</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>proxy-configuration-service</key>
+    </entry>
+    <entry>
+        <key>Proxy Type</key>
+        <value>DIRECT</value>
+    </entry>
+    <entry>
+        <key>Proxy Host</key>
+    </entry>
+    <entry>
+        <key>Proxy Port</key>
+    </entry>
+    <entry>
+        <key>Http Proxy Username</key>
+    </entry>
+    <entry>
+        <key>Http Proxy Password</key>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>PutSFTP</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>reject</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.PutSFTP</type>
+                        </processors>
+                        <processors>
+                            <id>cbcd58d8-cf30-37b8-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <position>
+<x>1456.494945409214</x>
+<y>994.3620754419471</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-update-attribute-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Delete Attributes Expression</key>
+        <value>
+            <name>Delete Attributes Expression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Store State</key>
+        <value>
+            <name>Store State</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Stateful Variables Initial Value</key>
+        <value>
+            <name>Stateful Variables Initial Value</name>
+        </value>
+    </entry>
+    <entry>
+        <key>filename</key>
+        <value>
+            <name>filename</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Delete Attributes Expression</key>
+    </entry>
+    <entry>
+        <key>Store State</key>
+        <value>Do not store state</value>
+    </entry>
+    <entry>
+        <key>Stateful Variables Initial Value</key>
+    </entry>
+    <entry>
+        <key>filename</key>
+        <value>convertError</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>UpdateAttribute</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+                        </processors>
+                        <processors>
+                            <id>d1b45797-6e13-39ad-0000-000000000000</id>
+                            <parentGroupId>2ea47be8-b439-30e2-0000-000000000000</parentGroupId>
+                            <position>
+<x>1457.406922287351</x>
+<y>395.31211653849056</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-hadoop-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Hadoop Configuration Resources</key>
+        <value>
+            <name>Hadoop Configuration Resources</name>
+        </value>
+    </entry>
+    <entry>
+        <key>kerberos-credentials-service</key>
+        <value>
+            <identifiesControllerService>org.apache.nifi.kerberos.KerberosCredentialsService</identifiesControllerService>
+            <name>kerberos-credentials-service</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Kerberos Principal</key>
+        <value>
+            <name>Kerberos Principal</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Kerberos Keytab</key>
+        <value>
+            <name>Kerberos Keytab</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Kerberos Relogin Period</key>
+        <value>
+            <name>Kerberos Relogin Period</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Additional Classpath Resources</key>
+        <value>
+            <name>Additional Classpath Resources</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Directory</key>
+        <value>
+            <name>Directory</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution Strategy</key>
+        <value>
+            <name>Conflict Resolution Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Block Size</key>
+        <value>
+            <name>Block Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>IO Buffer Size</key>
+        <value>
+            <name>IO Buffer Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Replication</key>
+        <value>
+            <name>Replication</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Permissions umask</key>
+        <value>
+            <name>Permissions umask</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+        <value>
+            <name>Remote Owner</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+        <value>
+            <name>Remote Group</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Compression codec</key>
+        <value>
+            <name>Compression codec</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Hadoop Configuration Resources</key>
+        <value>/etc/nifi/hdfs-site.xml,/etc/nifi/core-site.xml</value>
+    </entry>
+    <entry>
+        <key>kerberos-credentials-service</key>
+    </entry>
+    <entry>
+        <key>Kerberos Principal</key>
+    </entry>
+    <entry>
+        <key>Kerberos Keytab</key>
+    </entry>
+    <entry>
+        <key>Kerberos Relogin Period</key>
+        <value>4 hours</value>
+    </entry>
+    <entry>
+        <key>Additional Classpath Resources</key>
+    </entry>
+    <entry>
+        <key>Directory</key>
+        <value>${hdfs_path}</value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution Strategy</key>
+        <value>fail</value>
+    </entry>
+    <entry>
+        <key>Block Size</key>
+    </entry>
+    <entry>
+        <key>IO Buffer Size</key>
+    </entry>
+    <entry>
+        <key>Replication</key>
+    </entry>
+    <entry>
+        <key>Permissions umask</key>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+    </entry>
+    <entry>
+        <key>Compression codec</key>
+        <value>NONE</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>PutHDFS</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.hadoop.PutHDFS</type>
+                        </processors>
+                    </contents>
+                    <name>AvroConverter</name>
+                    <variables/>
+                </processGroups>
+                <processGroups>
+                    <id>41158d30-0db3-3e77-0000-000000000000</id>
+                    <parentGroupId>acc42885-6d88-30d6-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>823.0</x>
+                        <y>883.0</y>
+                    </position>
+                    <comments></comments>
+                    <contents>
+                        <connections>
+                            <id>1492ce5f-5df6-3469-0000-000000000000</id>
+                            <parentGroupId>41158d30-0db3-3e77-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>41158d30-0db3-3e77-0000-000000000000</groupId>
+<id>9c9689b3-92c7-3284-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <source>
+<groupId>41158d30-0db3-3e77-0000-000000000000</groupId>
+<id>5ffeb660-6150-3e24-0000-000000000000</id>
+<type>INPUT_PORT</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <inputPorts>
+                            <id>5ffeb660-6150-3e24-0000-000000000000</id>
+                            <parentGroupId>41158d30-0db3-3e77-0000-000000000000</parentGroupId>
+                            <position>
+<x>717.0</x>
+<y>111.0</y>
+                            </position>
+                            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                            <name>schema</name>
+                            <state>STOPPED</state>
+                            <type>INPUT_PORT</type>
+                        </inputPorts>
+                        <processors>
+                            <id>9c9689b3-92c7-3284-0000-000000000000</id>
+                            <parentGroupId>41158d30-0db3-3e77-0000-000000000000</parentGroupId>
+                            <position>
+<x>689.0</x>
+<y>285.0</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-scripting-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Script Engine</key>
+        <value>
+            <name>Script Engine</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Script File</key>
+        <value>
+            <name>Script File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Script Body</key>
+        <value>
+            <name>Script Body</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Module Directory</key>
+        <value>
+            <name>Module Directory</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Script Engine</key>
+        <value>Clojure</value>
+    </entry>
+    <entry>
+        <key>Script File</key>
+    </entry>
+    <entry>
+        <key>Script Body</key>
+    </entry>
+    <entry>
+        <key>Module Directory</key>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>ExecuteScript</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.script.ExecuteScript</type>
+                        </processors>
+                    </contents>
+                    <name>InsertToAtlas</name>
+                    <variables/>
+                </processGroups>
+                <processGroups>
+                    <id>509d2785-f1bd-3a87-0000-000000000000</id>
+                    <parentGroupId>acc42885-6d88-30d6-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>1430.0</x>
+                        <y>352.0</y>
+                    </position>
+                    <comments></comments>
+                    <contents>
+                        <connections>
+                            <id>3d60cbcd-de1a-32d6-0000-000000000000</id>
+                            <parentGroupId>509d2785-f1bd-3a87-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>509d2785-f1bd-3a87-0000-000000000000</groupId>
+<id>3c160459-25da-31a2-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>509d2785-f1bd-3a87-0000-000000000000</groupId>
+<id>ab3b36b0-b261-3825-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>4e86d74b-c9b2-370d-0000-000000000000</id>
+                            <parentGroupId>509d2785-f1bd-3a87-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>509d2785-f1bd-3a87-0000-000000000000</groupId>
+<id>ab3b36b0-b261-3825-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>merged</selectedRelationships>
+                            <source>
+<groupId>509d2785-f1bd-3a87-0000-000000000000</groupId>
+<id>4604ca93-91dc-32e0-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>69ea6dbb-3bbc-3e7d-0000-000000000000</id>
+                            <parentGroupId>509d2785-f1bd-3a87-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>509d2785-f1bd-3a87-0000-000000000000</groupId>
+<id>4604ca93-91dc-32e0-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>509d2785-f1bd-3a87-0000-000000000000</groupId>
+<id>c37f5c54-070d-32ef-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>ea381c0e-5eb8-3461-0000-000000000000</id>
+                            <parentGroupId>509d2785-f1bd-3a87-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>509d2785-f1bd-3a87-0000-000000000000</groupId>
+<id>c37f5c54-070d-32ef-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <source>
+<groupId>509d2785-f1bd-3a87-0000-000000000000</groupId>
+<id>955d062d-6b63-3276-0000-000000000000</id>
+<type>INPUT_PORT</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <inputPorts>
+                            <id>955d062d-6b63-3276-0000-000000000000</id>
+                            <parentGroupId>509d2785-f1bd-3a87-0000-000000000000</parentGroupId>
+                            <position>
+<x>1439.7235830879654</x>
+<y>-307.2204248346171</y>
+                            </position>
+                            <comments></comments>
+                            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                            <name>evaluateFailure</name>
+                            <state>STOPPED</state>
+                            <type>INPUT_PORT</type>
+                        </inputPorts>
+                        <processors>
+                            <id>3c160459-25da-31a2-0000-000000000000</id>
+                            <parentGroupId>509d2785-f1bd-3a87-0000-000000000000</parentGroupId>
+                            <position>
+<x>1392.7085160706329</x>
+<y>496.2690309633572</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Hostname</key>
+        <value>
+            <name>Hostname</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Port</key>
+        <value>
+            <name>Port</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Username</key>
+        <value>
+            <name>Username</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Password</key>
+        <value>
+            <name>Password</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Private Key Path</key>
+        <value>
+            <name>Private Key Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Private Key Passphrase</key>
+        <value>
+            <name>Private Key Passphrase</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Path</key>
+        <value>
+            <name>Remote Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Create Directory</key>
+        <value>
+            <name>Create Directory</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Disable Directory Listing</key>
+        <value>
+            <name>Disable Directory Listing</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Batch Size</key>
+        <value>
+            <name>Batch Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Connection Timeout</key>
+        <value>
+            <name>Connection Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Data Timeout</key>
+        <value>
+            <name>Data Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution</key>
+        <value>
+            <name>Conflict Resolution</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Reject Zero-Byte Files</key>
+        <value>
+            <name>Reject Zero-Byte Files</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Dot Rename</key>
+        <value>
+            <name>Dot Rename</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Temporary Filename</key>
+        <value>
+            <name>Temporary Filename</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Host Key File</key>
+        <value>
+            <name>Host Key File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Last Modified Time</key>
+        <value>
+            <name>Last Modified Time</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Permissions</key>
+        <value>
+            <name>Permissions</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+        <value>
+            <name>Remote Owner</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+        <value>
+            <name>Remote Group</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Strict Host Key Checking</key>
+        <value>
+            <name>Strict Host Key Checking</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Send Keep Alive On Timeout</key>
+        <value>
+            <name>Send Keep Alive On Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Use Compression</key>
+        <value>
+            <name>Use Compression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>proxy-configuration-service</key>
+        <value>
+            <identifiesControllerService>org.apache.nifi.proxy.ProxyConfigurationService</identifiesControllerService>
+            <name>proxy-configuration-service</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Type</key>
+        <value>
+            <name>Proxy Type</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Host</key>
+        <value>
+            <name>Proxy Host</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Port</key>
+        <value>
+            <name>Proxy Port</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Http Proxy Username</key>
+        <value>
+            <name>Http Proxy Username</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Http Proxy Password</key>
+        <value>
+            <name>Http Proxy Password</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Hostname</key>
+        <value>illincdpsl01</value>
+    </entry>
+    <entry>
+        <key>Port</key>
+        <value>22</value>
+    </entry>
+    <entry>
+        <key>Username</key>
+        <value>root</value>
+    </entry>
+    <entry>
+        <key>Password</key>
+    </entry>
+    <entry>
+        <key>Private Key Path</key>
+    </entry>
+    <entry>
+        <key>Private Key Passphrase</key>
+    </entry>
+    <entry>
+        <key>Remote Path</key>
+        <value>/nifi-logs/Evaluate/</value>
+    </entry>
+    <entry>
+        <key>Create Directory</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Disable Directory Listing</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Batch Size</key>
+        <value>500</value>
+    </entry>
+    <entry>
+        <key>Connection Timeout</key>
+        <value>30 sec</value>
+    </entry>
+    <entry>
+        <key>Data Timeout</key>
+        <value>30 sec</value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution</key>
+        <value>NONE</value>
+    </entry>
+    <entry>
+        <key>Reject Zero-Byte Files</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Dot Rename</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Temporary Filename</key>
+    </entry>
+    <entry>
+        <key>Host Key File</key>
+    </entry>
+    <entry>
+        <key>Last Modified Time</key>
+    </entry>
+    <entry>
+        <key>Permissions</key>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+    </entry>
+    <entry>
+        <key>Strict Host Key Checking</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Send Keep Alive On Timeout</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Use Compression</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>proxy-configuration-service</key>
+    </entry>
+    <entry>
+        <key>Proxy Type</key>
+        <value>DIRECT</value>
+    </entry>
+    <entry>
+        <key>Proxy Host</key>
+    </entry>
+    <entry>
+        <key>Proxy Port</key>
+    </entry>
+    <entry>
+        <key>Http Proxy Username</key>
+    </entry>
+    <entry>
+        <key>Http Proxy Password</key>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>PutSFTP</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>reject</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.PutSFTP</type>
+                        </processors>
+                        <processors>
+                            <id>4604ca93-91dc-32e0-0000-000000000000</id>
+                            <parentGroupId>509d2785-f1bd-3a87-0000-000000000000</parentGroupId>
+                            <position>
+<x>1388.4994327506934</x>
+<y>18.651891203812852</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Merge Strategy</key>
+        <value>
+            <name>Merge Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Merge Format</key>
+        <value>
+            <name>Merge Format</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Attribute Strategy</key>
+        <value>
+            <name>Attribute Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Correlation Attribute Name</key>
+        <value>
+            <name>Correlation Attribute Name</name>
+        </value>
+    </entry>
+    <entry>
+        <key>mergecontent-metadata-strategy</key>
+        <value>
+            <name>mergecontent-metadata-strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Minimum Number of Entries</key>
+        <value>
+            <name>Minimum Number of Entries</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum Number of Entries</key>
+        <value>
+            <name>Maximum Number of Entries</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Minimum Group Size</key>
+        <value>
+            <name>Minimum Group Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum Group Size</key>
+        <value>
+            <name>Maximum Group Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Max Bin Age</key>
+        <value>
+            <name>Max Bin Age</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum number of Bins</key>
+        <value>
+            <name>Maximum number of Bins</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Delimiter Strategy</key>
+        <value>
+            <name>Delimiter Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Header File</key>
+        <value>
+            <name>Header File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Footer File</key>
+        <value>
+            <name>Footer File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Demarcator File</key>
+        <value>
+            <name>Demarcator File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Compression Level</key>
+        <value>
+            <name>Compression Level</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Keep Path</key>
+        <value>
+            <name>Keep Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Tar Modified Time</key>
+        <value>
+            <name>Tar Modified Time</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Merge Strategy</key>
+        <value>Bin-Packing Algorithm</value>
+    </entry>
+    <entry>
+        <key>Merge Format</key>
+        <value>Binary Concatenation</value>
+    </entry>
+    <entry>
+        <key>Attribute Strategy</key>
+        <value>Keep Only Common Attributes</value>
+    </entry>
+    <entry>
+        <key>Correlation Attribute Name</key>
+    </entry>
+    <entry>
+        <key>mergecontent-metadata-strategy</key>
+        <value>Do Not Merge Uncommon Metadata</value>
+    </entry>
+    <entry>
+        <key>Minimum Number of Entries</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>Maximum Number of Entries</key>
+        <value>1000</value>
+    </entry>
+    <entry>
+        <key>Minimum Group Size</key>
+        <value>0 B</value>
+    </entry>
+    <entry>
+        <key>Maximum Group Size</key>
+    </entry>
+    <entry>
+        <key>Max Bin Age</key>
+    </entry>
+    <entry>
+        <key>Maximum number of Bins</key>
+        <value>5</value>
+    </entry>
+    <entry>
+        <key>Delimiter Strategy</key>
+        <value>Filename</value>
+    </entry>
+    <entry>
+        <key>Header File</key>
+    </entry>
+    <entry>
+        <key>Footer File</key>
+    </entry>
+    <entry>
+        <key>Demarcator File</key>
+    </entry>
+    <entry>
+        <key>Compression Level</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>Keep Path</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Tar Modified Time</key>
+        <value>${file.lastModifiedTime}</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>MergeContent</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>merged</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>original</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.MergeContent</type>
+                        </processors>
+                        <processors>
+                            <id>ab3b36b0-b261-3825-0000-000000000000</id>
+                            <parentGroupId>509d2785-f1bd-3a87-0000-000000000000</parentGroupId>
+                            <position>
+<x>1397.2184591925748</x>
+<y>251.88491249258175</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-update-attribute-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Delete Attributes Expression</key>
+        <value>
+            <name>Delete Attributes Expression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Store State</key>
+        <value>
+            <name>Store State</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Stateful Variables Initial Value</key>
+        <value>
+            <name>Stateful Variables Initial Value</name>
+        </value>
+    </entry>
+    <entry>
+        <key>filename</key>
+        <value>
+            <name>filename</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Delete Attributes Expression</key>
+    </entry>
+    <entry>
+        <key>Store State</key>
+        <value>Do not store state</value>
+    </entry>
+    <entry>
+        <key>Stateful Variables Initial Value</key>
+    </entry>
+    <entry>
+        <key>filename</key>
+        <value>error_${now():format("dd-MM-yyyy.HH:mm:ss")}</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>UpdateAttribute</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+                        </processors>
+                        <processors>
+                            <id>c37f5c54-070d-32ef-0000-000000000000</id>
+                            <parentGroupId>509d2785-f1bd-3a87-0000-000000000000</parentGroupId>
+                            <position>
+<x>1391.00535907902</x>
+<y>-192.78363568386152</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Regular Expression</key>
+        <value>
+            <name>Regular Expression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Replacement Value</key>
+        <value>
+            <name>Replacement Value</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Character Set</key>
+        <value>
+            <name>Character Set</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum Buffer Size</key>
+        <value>
+            <name>Maximum Buffer Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Replacement Strategy</key>
+        <value>
+            <name>Replacement Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Evaluation Mode</key>
+        <value>
+            <name>Evaluation Mode</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Regular Expression</key>
+        <value>.*</value>
+    </entry>
+    <entry>
+        <key>Replacement Value</key>
+        <value>${filename}|${now():format("dd-MM-yyyy.HH:mm:ss")}|ERROR|Error while getting the attributes from conf file|${errors}
+</value>
+    </entry>
+    <entry>
+        <key>Character Set</key>
+        <value>UTF-8</value>
+    </entry>
+    <entry>
+        <key>Maximum Buffer Size</key>
+        <value>1 MB</value>
+    </entry>
+    <entry>
+        <key>Replacement Strategy</key>
+        <value>Regex Replace</value>
+    </entry>
+    <entry>
+        <key>Evaluation Mode</key>
+        <value>Entire text</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>ReplaceText</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.ReplaceText</type>
+                        </processors>
+                    </contents>
+                    <name>logEvaluate</name>
+                    <variables/>
+                </processGroups>
+                <processGroups>
+                    <id>9714544a-bb50-317a-0000-000000000000</id>
+                    <parentGroupId>acc42885-6d88-30d6-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>193.0</x>
+                        <y>350.0</y>
+                    </position>
+                    <comments></comments>
+                    <contents>
+                        <connections>
+                            <id>64797691-4ed3-3841-0000-000000000000</id>
+                            <parentGroupId>9714544a-bb50-317a-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>9714544a-bb50-317a-0000-000000000000</groupId>
+<id>7270c856-e675-3b8a-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>9714544a-bb50-317a-0000-000000000000</groupId>
+<id>4ad47283-0433-3304-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>680951c1-01c6-3184-0000-000000000000</id>
+                            <parentGroupId>9714544a-bb50-317a-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>9714544a-bb50-317a-0000-000000000000</groupId>
+<id>4ad47283-0433-3304-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>merged</selectedRelationships>
+                            <source>
+<groupId>9714544a-bb50-317a-0000-000000000000</groupId>
+<id>0d3ce39c-26e4-3d3b-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>bbe841e3-f717-3d1d-0000-000000000000</id>
+                            <parentGroupId>9714544a-bb50-317a-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>9714544a-bb50-317a-0000-000000000000</groupId>
+<id>6c6c4cc7-082a-343c-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <source>
+<groupId>9714544a-bb50-317a-0000-000000000000</groupId>
+<id>7b8504d8-0b59-387c-0000-000000000000</id>
+<type>INPUT_PORT</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>fa4ad827-5e8f-37c2-0000-000000000000</id>
+                            <parentGroupId>9714544a-bb50-317a-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>9714544a-bb50-317a-0000-000000000000</groupId>
+<id>0d3ce39c-26e4-3d3b-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>9714544a-bb50-317a-0000-000000000000</groupId>
+<id>6c6c4cc7-082a-343c-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <inputPorts>
+                            <id>7b8504d8-0b59-387c-0000-000000000000</id>
+                            <parentGroupId>9714544a-bb50-317a-0000-000000000000</parentGroupId>
+                            <position>
+<x>-472.6458442706089</x>
+<y>-251.99689728630284</y>
+                            </position>
+                            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                            <name>splitFailure</name>
+                            <state>STOPPED</state>
+                            <type>INPUT_PORT</type>
+                        </inputPorts>
+                        <processors>
+                            <id>0d3ce39c-26e4-3d3b-0000-000000000000</id>
+                            <parentGroupId>9714544a-bb50-317a-0000-000000000000</parentGroupId>
+                            <position>
+<x>-523.6458442706089</x>
+<y>106.00310271369716</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Merge Strategy</key>
+        <value>
+            <name>Merge Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Merge Format</key>
+        <value>
+            <name>Merge Format</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Attribute Strategy</key>
+        <value>
+            <name>Attribute Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Correlation Attribute Name</key>
+        <value>
+            <name>Correlation Attribute Name</name>
+        </value>
+    </entry>
+    <entry>
+        <key>mergecontent-metadata-strategy</key>
+        <value>
+            <name>mergecontent-metadata-strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Minimum Number of Entries</key>
+        <value>
+            <name>Minimum Number of Entries</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum Number of Entries</key>
+        <value>
+            <name>Maximum Number of Entries</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Minimum Group Size</key>
+        <value>
+            <name>Minimum Group Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum Group Size</key>
+        <value>
+            <name>Maximum Group Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Max Bin Age</key>
+        <value>
+            <name>Max Bin Age</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum number of Bins</key>
+        <value>
+            <name>Maximum number of Bins</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Delimiter Strategy</key>
+        <value>
+            <name>Delimiter Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Header File</key>
+        <value>
+            <name>Header File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Footer File</key>
+        <value>
+            <name>Footer File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Demarcator File</key>
+        <value>
+            <name>Demarcator File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Compression Level</key>
+        <value>
+            <name>Compression Level</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Keep Path</key>
+        <value>
+            <name>Keep Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Tar Modified Time</key>
+        <value>
+            <name>Tar Modified Time</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Merge Strategy</key>
+        <value>Bin-Packing Algorithm</value>
+    </entry>
+    <entry>
+        <key>Merge Format</key>
+        <value>Binary Concatenation</value>
+    </entry>
+    <entry>
+        <key>Attribute Strategy</key>
+        <value>Keep Only Common Attributes</value>
+    </entry>
+    <entry>
+        <key>Correlation Attribute Name</key>
+    </entry>
+    <entry>
+        <key>mergecontent-metadata-strategy</key>
+        <value>Do Not Merge Uncommon Metadata</value>
+    </entry>
+    <entry>
+        <key>Minimum Number of Entries</key>
+        <value>10</value>
+    </entry>
+    <entry>
+        <key>Maximum Number of Entries</key>
+        <value>1000</value>
+    </entry>
+    <entry>
+        <key>Minimum Group Size</key>
+        <value>0 B</value>
+    </entry>
+    <entry>
+        <key>Maximum Group Size</key>
+    </entry>
+    <entry>
+        <key>Max Bin Age</key>
+    </entry>
+    <entry>
+        <key>Maximum number of Bins</key>
+        <value>5</value>
+    </entry>
+    <entry>
+        <key>Delimiter Strategy</key>
+        <value>Filename</value>
+    </entry>
+    <entry>
+        <key>Header File</key>
+    </entry>
+    <entry>
+        <key>Footer File</key>
+    </entry>
+    <entry>
+        <key>Demarcator File</key>
+    </entry>
+    <entry>
+        <key>Compression Level</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>Keep Path</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Tar Modified Time</key>
+        <value>${file.lastModifiedTime}</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>MergeContent</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>merged</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>original</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.MergeContent</type>
+                        </processors>
+                        <processors>
+                            <id>4ad47283-0433-3304-0000-000000000000</id>
+                            <parentGroupId>9714544a-bb50-317a-0000-000000000000</parentGroupId>
+                            <position>
+<x>-522.6458442706089</x>
+<y>321.0031179724862</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-update-attribute-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Delete Attributes Expression</key>
+        <value>
+            <name>Delete Attributes Expression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Store State</key>
+        <value>
+            <name>Store State</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Stateful Variables Initial Value</key>
+        <value>
+            <name>Stateful Variables Initial Value</name>
+        </value>
+    </entry>
+    <entry>
+        <key>filename</key>
+        <value>
+            <name>filename</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Delete Attributes Expression</key>
+    </entry>
+    <entry>
+        <key>Store State</key>
+        <value>Do not store state</value>
+    </entry>
+    <entry>
+        <key>Stateful Variables Initial Value</key>
+    </entry>
+    <entry>
+        <key>filename</key>
+        <value>errors_${now():format("dd-MM-yyyy.HH:mm:ss")}.log</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>UpdateAttribute</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+                        </processors>
+                        <processors>
+                            <id>6c6c4cc7-082a-343c-0000-000000000000</id>
+                            <parentGroupId>9714544a-bb50-317a-0000-000000000000</parentGroupId>
+                            <position>
+<x>-529.6457486590061</x>
+<y>-98.99692762001791</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Regular Expression</key>
+        <value>
+            <name>Regular Expression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Replacement Value</key>
+        <value>
+            <name>Replacement Value</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Character Set</key>
+        <value>
+            <name>Character Set</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum Buffer Size</key>
+        <value>
+            <name>Maximum Buffer Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Replacement Strategy</key>
+        <value>
+            <name>Replacement Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Evaluation Mode</key>
+        <value>
+            <name>Evaluation Mode</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Regular Expression</key>
+        <value>.*</value>
+    </entry>
+    <entry>
+        <key>Replacement Value</key>
+        <value>${filename}|${now():format("dd-MM-yyyy.HH:mm:ss")}|ERROR|Error while splitting the conf file
+</value>
+    </entry>
+    <entry>
+        <key>Character Set</key>
+        <value>UTF-8</value>
+    </entry>
+    <entry>
+        <key>Maximum Buffer Size</key>
+        <value>1 MB</value>
+    </entry>
+    <entry>
+        <key>Replacement Strategy</key>
+        <value>Regex Replace</value>
+    </entry>
+    <entry>
+        <key>Evaluation Mode</key>
+        <value>Entire text</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>ReplaceText</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.ReplaceText</type>
+                        </processors>
+                        <processors>
+                            <id>7270c856-e675-3b8a-0000-000000000000</id>
+                            <parentGroupId>9714544a-bb50-317a-0000-000000000000</parentGroupId>
+                            <position>
+<x>-519.6457655984694</x>
+<y>537.01485487424</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Hostname</key>
+        <value>
+            <name>Hostname</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Port</key>
+        <value>
+            <name>Port</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Username</key>
+        <value>
+            <name>Username</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Password</key>
+        <value>
+            <name>Password</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Private Key Path</key>
+        <value>
+            <name>Private Key Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Private Key Passphrase</key>
+        <value>
+            <name>Private Key Passphrase</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Path</key>
+        <value>
+            <name>Remote Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Create Directory</key>
+        <value>
+            <name>Create Directory</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Disable Directory Listing</key>
+        <value>
+            <name>Disable Directory Listing</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Batch Size</key>
+        <value>
+            <name>Batch Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Connection Timeout</key>
+        <value>
+            <name>Connection Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Data Timeout</key>
+        <value>
+            <name>Data Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution</key>
+        <value>
+            <name>Conflict Resolution</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Reject Zero-Byte Files</key>
+        <value>
+            <name>Reject Zero-Byte Files</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Dot Rename</key>
+        <value>
+            <name>Dot Rename</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Temporary Filename</key>
+        <value>
+            <name>Temporary Filename</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Host Key File</key>
+        <value>
+            <name>Host Key File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Last Modified Time</key>
+        <value>
+            <name>Last Modified Time</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Permissions</key>
+        <value>
+            <name>Permissions</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+        <value>
+            <name>Remote Owner</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+        <value>
+            <name>Remote Group</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Strict Host Key Checking</key>
+        <value>
+            <name>Strict Host Key Checking</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Send Keep Alive On Timeout</key>
+        <value>
+            <name>Send Keep Alive On Timeout</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Use Compression</key>
+        <value>
+            <name>Use Compression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>proxy-configuration-service</key>
+        <value>
+            <identifiesControllerService>org.apache.nifi.proxy.ProxyConfigurationService</identifiesControllerService>
+            <name>proxy-configuration-service</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Type</key>
+        <value>
+            <name>Proxy Type</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Host</key>
+        <value>
+            <name>Proxy Host</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Proxy Port</key>
+        <value>
+            <name>Proxy Port</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Http Proxy Username</key>
+        <value>
+            <name>Http Proxy Username</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Http Proxy Password</key>
+        <value>
+            <name>Http Proxy Password</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Hostname</key>
+        <value>illincdpsl01</value>
+    </entry>
+    <entry>
+        <key>Port</key>
+        <value>22</value>
+    </entry>
+    <entry>
+        <key>Username</key>
+        <value>root</value>
+    </entry>
+    <entry>
+        <key>Password</key>
+    </entry>
+    <entry>
+        <key>Private Key Path</key>
+    </entry>
+    <entry>
+        <key>Private Key Passphrase</key>
+    </entry>
+    <entry>
+        <key>Remote Path</key>
+        <value>/nifi-logs/splitJson/</value>
+    </entry>
+    <entry>
+        <key>Create Directory</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Disable Directory Listing</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Batch Size</key>
+        <value>500</value>
+    </entry>
+    <entry>
+        <key>Connection Timeout</key>
+        <value>30 sec</value>
+    </entry>
+    <entry>
+        <key>Data Timeout</key>
+        <value>30 sec</value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution</key>
+        <value>NONE</value>
+    </entry>
+    <entry>
+        <key>Reject Zero-Byte Files</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Dot Rename</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Temporary Filename</key>
+    </entry>
+    <entry>
+        <key>Host Key File</key>
+    </entry>
+    <entry>
+        <key>Last Modified Time</key>
+    </entry>
+    <entry>
+        <key>Permissions</key>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+    </entry>
+    <entry>
+        <key>Strict Host Key Checking</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Send Keep Alive On Timeout</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>Use Compression</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>proxy-configuration-service</key>
+    </entry>
+    <entry>
+        <key>Proxy Type</key>
+        <value>DIRECT</value>
+    </entry>
+    <entry>
+        <key>Proxy Host</key>
+    </entry>
+    <entry>
+        <key>Proxy Port</key>
+    </entry>
+    <entry>
+        <key>Http Proxy Username</key>
+    </entry>
+    <entry>
+        <key>Http Proxy Password</key>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>PutSFTP</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>reject</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.PutSFTP</type>
+                        </processors>
+                    </contents>
+                    <name>logSplit</name>
+                    <variables/>
+                </processGroups>
+                <processGroups>
+                    <id>b5a4235f-eb07-32cc-0000-000000000000</id>
+                    <parentGroupId>acc42885-6d88-30d6-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>814.0</x>
+                        <y>351.0</y>
+                    </position>
+                    <comments></comments>
+                    <contents>
+                        <connections>
+                            <id>06114e1b-e51d-3890-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>dd6ed952-81c3-3005-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>matched</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>f4ecacd0-9265-38cd-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>0e685d52-0266-3378-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>f4ecacd0-9265-38cd-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>split</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>7627e0f8-d949-3ce9-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>247ecd96-6cd5-30a2-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>239c9f5f-b687-3829-0000-000000000000</id>
+<type>OUTPUT_PORT</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>failure</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>b400eb87-fd31-3d71-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>3b790f7a-4706-3563-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>5f0d88fe-4bb3-3469-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>matched</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>b400eb87-fd31-3d71-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>5f587332-f37e-3d88-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>239c9f5f-b687-3829-0000-000000000000</id>
+<type>OUTPUT_PORT</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>failure</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>f4ecacd0-9265-38cd-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>737e6ab6-b0e7-3eaf-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>948d2a2e-b8ba-3261-0000-000000000000</id>
+<type>OUTPUT_PORT</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>217a6da1-aab0-342d-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>73aa2e4a-1405-397c-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>ccb24b90-cd9a-36cb-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>split</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>5f0d88fe-4bb3-3469-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>7d085b38-9d6c-3d30-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>7f6394f3-0be6-3756-0000-000000000000</id>
+<type>OUTPUT_PORT</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>failure</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>dd6ed952-81c3-3005-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>93e46313-473d-30b3-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>7f6394f3-0be6-3756-0000-000000000000</id>
+<type>OUTPUT_PORT</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>failure</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>7627e0f8-d949-3ce9-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>be314271-1254-3652-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>b400eb87-fd31-3d71-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>split</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>dd6ed952-81c3-3005-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>e005e42f-7cb9-3057-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>217a6da1-aab0-342d-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>matched</selectedRelationships>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>ccb24b90-cd9a-36cb-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>faf8d226-ee19-3e59-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>7627e0f8-d949-3ce9-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <source>
+<groupId>b5a4235f-eb07-32cc-0000-000000000000</groupId>
+<id>c93b9695-9dc2-385f-0000-000000000000</id>
+<type>INPUT_PORT</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <inputPorts>
+                            <id>c93b9695-9dc2-385f-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>735.0</x>
+<y>110.0</y>
+                            </position>
+                            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                            <name>conf</name>
+                            <state>RUNNING</state>
+                            <type>INPUT_PORT</type>
+                        </inputPorts>
+                        <outputPorts>
+                            <id>239c9f5f-b687-3829-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>1729.411693089638</x>
+<y>396.37182443259746</y>
+                            </position>
+                            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                            <name>evaluateFailure</name>
+                            <state>RUNNING</state>
+                            <type>OUTPUT_PORT</type>
+                        </outputPorts>
+                        <outputPorts>
+                            <id>7f6394f3-0be6-3756-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>19.0</x>
+<y>384.88483957795177</y>
+                            </position>
+                            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                            <name>splitFailure</name>
+                            <state>RUNNING</state>
+                            <type>OUTPUT_PORT</type>
+                        </outputPorts>
+                        <outputPorts>
+                            <id>948d2a2e-b8ba-3261-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>879.217272728326</x>
+<y>1019.6941591710417</y>
+                            </position>
+                            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                            <name>parsedFile</name>
+                            <state>RUNNING</state>
+                            <type>OUTPUT_PORT</type>
+                        </outputPorts>
+                        <processors>
+                            <id>217a6da1-aab0-342d-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>825.2186860399222</x>
+<y>784.3266479527931</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-update-attribute-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Delete Attributes Expression</key>
+        <value>
+            <name>Delete Attributes Expression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Store State</key>
+        <value>
+            <name>Store State</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Stateful Variables Initial Value</key>
+        <value>
+            <name>Stateful Variables Initial Value</name>
+        </value>
+    </entry>
+    <entry>
+        <key>filename</key>
+        <value>
+            <name>filename</name>
+        </value>
+    </entry>
+    <entry>
+        <key>hdfs_path</key>
+        <value>
+            <name>hdfs_path</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Delete Attributes Expression</key>
+    </entry>
+    <entry>
+        <key>Store State</key>
+        <value>Do not store state</value>
+    </entry>
+    <entry>
+        <key>Stateful Variables Initial Value</key>
+    </entry>
+    <entry>
+        <key>filename</key>
+        <value>${table_name}</value>
+    </entry>
+    <entry>
+        <key>hdfs_path</key>
+        <value>/RawZone/${data_source}/${file_name}/${table_name}</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>UpdateHdfsPath</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>RUNNING</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+                        </processors>
+                        <processors>
+                            <id>5f0d88fe-4bb3-3469-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>539.0</x>
+<y>579.0</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>JsonPath Expression</key>
+        <value>
+            <name>JsonPath Expression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>
+            <name>Null Value Representation</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>JsonPath Expression</key>
+        <value>$.description</value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>empty string</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>SplitJson</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>original</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>split</name>
+                            </relationships>
+                            <state>RUNNING</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.SplitJson</type>
+                        </processors>
+                        <processors>
+                            <id>7627e0f8-d949-3ce9-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>538.5614739755106</x>
+<y>245.810053671908</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>JsonPath Expression</key>
+        <value>
+            <name>JsonPath Expression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>
+            <name>Null Value Representation</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>JsonPath Expression</key>
+        <value>$.*</value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>empty string</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>SplitJson</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>original</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>split</name>
+                            </relationships>
+                            <state>RUNNING</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.SplitJson</type>
+                        </processors>
+                        <processors>
+                            <id>b400eb87-fd31-3d71-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>1128.2959541679736</x>
+<y>410.06846382922595</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Destination</key>
+        <value>
+            <name>Destination</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Return Type</key>
+        <value>
+            <name>Return Type</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Path Not Found Behavior</key>
+        <value>
+            <name>Path Not Found Behavior</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>
+            <name>Null Value Representation</name>
+        </value>
+    </entry>
+    <entry>
+        <key>file_name</key>
+        <value>
+            <name>file_name</name>
+        </value>
+    </entry>
+    <entry>
+        <key>file_path</key>
+        <value>
+            <name>file_path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>schema_path</key>
+        <value>
+            <name>schema_path</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Destination</key>
+        <value>flowfile-attribute</value>
+    </entry>
+    <entry>
+        <key>Return Type</key>
+        <value>json</value>
+    </entry>
+    <entry>
+        <key>Path Not Found Behavior</key>
+        <value>ignore</value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>empty string</value>
+    </entry>
+    <entry>
+        <key>file_name</key>
+        <value>$.name</value>
+    </entry>
+    <entry>
+        <key>file_path</key>
+        <value>$.file_path</value>
+    </entry>
+    <entry>
+        <key>schema_path</key>
+        <value>$.schema_path</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>EvaluateTableInfo</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>matched</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>unmatched</name>
+                            </relationships>
+                            <state>RUNNING</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
+                        </processors>
+                        <processors>
+                            <id>ccb24b90-cd9a-36cb-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>1126.0</x>
+<y>577.0</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Destination</key>
+        <value>
+            <name>Destination</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Return Type</key>
+        <value>
+            <name>Return Type</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Path Not Found Behavior</key>
+        <value>
+            <name>Path Not Found Behavior</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>
+            <name>Null Value Representation</name>
+        </value>
+    </entry>
+    <entry>
+        <key>columns</key>
+        <value>
+            <name>columns</name>
+        </value>
+    </entry>
+    <entry>
+        <key>columns_description</key>
+        <value>
+            <name>columns_description</name>
+        </value>
+    </entry>
+    <entry>
+        <key>table_description</key>
+        <value>
+            <name>table_description</name>
+        </value>
+    </entry>
+    <entry>
+        <key>table_name</key>
+        <value>
+            <name>table_name</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Destination</key>
+        <value>flowfile-attribute</value>
+    </entry>
+    <entry>
+        <key>Return Type</key>
+        <value>json</value>
+    </entry>
+    <entry>
+        <key>Path Not Found Behavior</key>
+        <value>ignore</value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>empty string</value>
+    </entry>
+    <entry>
+        <key>columns</key>
+        <value>$.column_list[*].name</value>
+    </entry>
+    <entry>
+        <key>columns_description</key>
+        <value>$.column_list[*].description</value>
+    </entry>
+    <entry>
+        <key>table_description</key>
+        <value>$.description</value>
+    </entry>
+    <entry>
+        <key>table_name</key>
+        <value>$.name</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>EvaluateJsonPath</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>matched</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>unmatched</name>
+                            </relationships>
+                            <state>RUNNING</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
+                        </processors>
+                        <processors>
+                            <id>dd6ed952-81c3-3005-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>539.0007215443839</x>
+<y>415.3465066224999</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>JsonPath Expression</key>
+        <value>
+            <name>JsonPath Expression</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>
+            <name>Null Value Representation</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>JsonPath Expression</key>
+        <value>$.files</value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>empty string</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>SplitToTablesData</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>original</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>split</name>
+                            </relationships>
+                            <state>RUNNING</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.SplitJson</type>
+                        </processors>
+                        <processors>
+                            <id>f4ecacd0-9265-38cd-0000-000000000000</id>
+                            <parentGroupId>b5a4235f-eb07-32cc-0000-000000000000</parentGroupId>
+                            <position>
+<x>1131.4477380337444</x>
+<y>245.0</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Destination</key>
+        <value>
+            <name>Destination</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Return Type</key>
+        <value>
+            <name>Return Type</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Path Not Found Behavior</key>
+        <value>
+            <name>Path Not Found Behavior</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>
+            <name>Null Value Representation</name>
+        </value>
+    </entry>
+    <entry>
+        <key>data_source</key>
+        <value>
+            <name>data_source</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Destination</key>
+        <value>flowfile-attribute</value>
+    </entry>
+    <entry>
+        <key>Return Type</key>
+        <value>json</value>
+    </entry>
+    <entry>
+        <key>Path Not Found Behavior</key>
+        <value>ignore</value>
+    </entry>
+    <entry>
+        <key>Null Value Representation</key>
+        <value>empty string</value>
+    </entry>
+    <entry>
+        <key>data_source</key>
+        <value>$.data_source</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>EvaluateDbInfo</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>matched</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>unmatched</name>
+                            </relationships>
+                            <state>RUNNING</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
+                        </processors>
+                    </contents>
+                    <name>FileParser</name>
+                    <variables/>
+                </processGroups>
+                <processors>
+                    <id>a99b1ba6-a6be-3198-0000-000000000000</id>
+                    <parentGroupId>acc42885-6d88-30d6-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>821.0</x>
+                        <y>95.0</y>
+                    </position>
+                    <bundle>
+                        <artifact>nifi-standard-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.7.0.3.2.0.0-520</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>Hostname</key>
+<value>
+    <name>Hostname</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Port</key>
+<value>
+    <name>Port</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Username</key>
+<value>
+    <name>Username</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Password</key>
+<value>
+    <name>Password</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Private Key Path</key>
+<value>
+    <name>Private Key Path</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Private Key Passphrase</key>
+<value>
+    <name>Private Key Passphrase</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Remote Path</key>
+<value>
+    <name>Remote Path</name>
+</value>
+                            </entry>
+                            <entry>
+<key>File Filter Regex</key>
+<value>
+    <name>File Filter Regex</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Path Filter Regex</key>
+<value>
+    <name>Path Filter Regex</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Polling Interval</key>
+<value>
+    <name>Polling Interval</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Search Recursively</key>
+<value>
+    <name>Search Recursively</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Ignore Dotted Files</key>
+<value>
+    <name>Ignore Dotted Files</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Delete Original</key>
+<value>
+    <name>Delete Original</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Connection Timeout</key>
+<value>
+    <name>Connection Timeout</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Data Timeout</key>
+<value>
+    <name>Data Timeout</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Host Key File</key>
+<value>
+    <name>Host Key File</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Max Selects</key>
+<value>
+    <name>Max Selects</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Remote Poll Batch Size</key>
+<value>
+    <name>Remote Poll Batch Size</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Strict Host Key Checking</key>
+<value>
+    <name>Strict Host Key Checking</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Send Keep Alive On Timeout</key>
+<value>
+    <name>Send Keep Alive On Timeout</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Use Compression</key>
+<value>
+    <name>Use Compression</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Use Natural Ordering</key>
+<value>
+    <name>Use Natural Ordering</name>
+</value>
+                            </entry>
+                            <entry>
+<key>proxy-configuration-service</key>
+<value>
+    <identifiesControllerService>org.apache.nifi.proxy.ProxyConfigurationService</identifiesControllerService>
+    <name>proxy-configuration-service</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Proxy Type</key>
+<value>
+    <name>Proxy Type</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Proxy Host</key>
+<value>
+    <name>Proxy Host</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Proxy Port</key>
+<value>
+    <name>Proxy Port</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Http Proxy Username</key>
+<value>
+    <name>Http Proxy Username</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Http Proxy Password</key>
+<value>
+    <name>Http Proxy Password</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>Hostname</key>
+<value>illincdpsl01</value>
+                            </entry>
+                            <entry>
+<key>Port</key>
+<value>22</value>
+                            </entry>
+                            <entry>
+<key>Username</key>
+<value>root</value>
+                            </entry>
+                            <entry>
+<key>Password</key>
+                            </entry>
+                            <entry>
+<key>Private Key Path</key>
+                            </entry>
+                            <entry>
+<key>Private Key Passphrase</key>
+                            </entry>
+                            <entry>
+<key>Remote Path</key>
+<value>/nifi-conf/File_conf</value>
+                            </entry>
+                            <entry>
+<key>File Filter Regex</key>
+                            </entry>
+                            <entry>
+<key>Path Filter Regex</key>
+                            </entry>
+                            <entry>
+<key>Polling Interval</key>
+<value>60 sec</value>
+                            </entry>
+                            <entry>
+<key>Search Recursively</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Ignore Dotted Files</key>
+<value>true</value>
+                            </entry>
+                            <entry>
+<key>Delete Original</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Connection Timeout</key>
+<value>30 sec</value>
+                            </entry>
+                            <entry>
+<key>Data Timeout</key>
+<value>30 sec</value>
+                            </entry>
+                            <entry>
+<key>Host Key File</key>
+                            </entry>
+                            <entry>
+<key>Max Selects</key>
+<value>100</value>
+                            </entry>
+                            <entry>
+<key>Remote Poll Batch Size</key>
+<value>5000</value>
+                            </entry>
+                            <entry>
+<key>Strict Host Key Checking</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Send Keep Alive On Timeout</key>
+<value>true</value>
+                            </entry>
+                            <entry>
+<key>Use Compression</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Use Natural Ordering</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>proxy-configuration-service</key>
+                            </entry>
+                            <entry>
+<key>Proxy Type</key>
+<value>DIRECT</value>
+                            </entry>
+                            <entry>
+<key>Proxy Host</key>
+                            </entry>
+                            <entry>
+<key>Proxy Port</key>
+                            </entry>
+                            <entry>
+<key>Http Proxy Username</key>
+                            </entry>
+                            <entry>
+<key>Http Proxy Password</key>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>GetSFTP</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>success</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <type>org.apache.nifi.processors.standard.GetSFTP</type>
+                </processors>
+            </contents>
+            <name>File_conf</name>
+            <variables/>
+        </processGroups>
+    </snippet>
+    <timestamp>10/18/2018 18:12:58 IDT</timestamp>
+</template>
