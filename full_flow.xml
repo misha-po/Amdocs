@@ -2,7 +2,7 @@
 <template encoding-version="1.2">
     <description></description>
     <groupId>7c84501d-d10c-407c-b9f3-1d80e38fe36a</groupId>
-    <name>full_flow11.05</name>
+    <name>full_flow08.11</name>
     <snippet>
         <connections>
             <id>95458a51-9e2c-31be-0000-000000000000</id>
@@ -44,6 +44,35 @@
             </source>
             <zIndex>0</zIndex>
         </connections>
+        <controllerServices>
+            <id>551ff0f7-3993-35c7-0000-000000000000</id>
+            <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
+            <bundle>
+                <artifact>nifi-dbcp-service-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.7.0.3.2.0.0-520</version>
+            </bundle>
+            <comments></comments>
+            <descriptors>
+                <entry>
+                    <key>AM_FOR_ITEX_illinimisac</key>
+                    <value>
+                        <identifiesControllerService>org.apache.nifi.dbcp.DBCPService</identifiesControllerService>
+                        <name>AM_FOR_ITEX_illinimisac</name>
+                    </value>
+                </entry>
+            </descriptors>
+            <name>OracleLookup</name>
+            <persistsState>false</persistsState>
+            <properties>
+                <entry>
+                    <key>AM_FOR_ITEX_illinimisac</key>
+                    <value>9fd7f0b6-28c7-3350-0000-000000000000</value>
+                </entry>
+            </properties>
+            <state>ENABLED</state>
+            <type>org.apache.nifi.dbcp.DBCPConnectionPoolLookup</type>
+        </controllerServices>
         <controllerServices>
             <id>6d43fe1e-976e-35a4-0000-000000000000</id>
             <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
@@ -103,7 +132,7 @@
                     </value>
                 </entry>
             </descriptors>
-            <name>SqlServerCP</name>
+            <name>BPM_ILRNAMSQL12</name>
             <persistsState>false</persistsState>
             <properties>
                 <entry>
@@ -199,7 +228,7 @@
                     </value>
                 </entry>
             </descriptors>
-            <name>OracleCP</name>
+            <name>AM_FOR_ITEX_illinimisac</name>
             <persistsState>false</persistsState>
             <properties>
                 <entry>
@@ -235,6 +264,35 @@
             </properties>
             <state>ENABLED</state>
             <type>org.apache.nifi.dbcp.DBCPConnectionPool</type>
+        </controllerServices>
+        <controllerServices>
+            <id>f61c29e9-0c4a-358b-0000-000000000000</id>
+            <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
+            <bundle>
+                <artifact>nifi-dbcp-service-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.7.0.3.2.0.0-520</version>
+            </bundle>
+            <comments></comments>
+            <descriptors>
+                <entry>
+                    <key>BPM_ILRNAMSQL12</key>
+                    <value>
+                        <identifiesControllerService>org.apache.nifi.dbcp.DBCPService</identifiesControllerService>
+                        <name>BPM_ILRNAMSQL12</name>
+                    </value>
+                </entry>
+            </descriptors>
+            <name>SqlServerLookup</name>
+            <persistsState>false</persistsState>
+            <properties>
+                <entry>
+                    <key>BPM_ILRNAMSQL12</key>
+                    <value>6d43fe1e-976e-35a4-0000-000000000000</value>
+                </entry>
+            </properties>
+            <state>ENABLED</state>
+            <type>org.apache.nifi.dbcp.DBCPConnectionPoolLookup</type>
         </controllerServices>
         <processGroups>
             <id>04feaee4-0f9b-39ba-0000-000000000000</id>
@@ -3064,7 +3122,7 @@
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>Parsed</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>INPUT_PORT</type>
                         </inputPorts>
                         <outputPorts>
@@ -3871,7 +3929,7 @@
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.hadoop.PutHDFS</type>
                         </processors>
@@ -3987,7 +4045,7 @@
 <autoTerminate>true</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
                         </processors>
@@ -4063,7 +4121,7 @@
 <autoTerminate>true</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
                         </processors>
@@ -5321,7 +5379,7 @@
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.FetchSFTP</type>
                         </processors>
@@ -5546,7 +5604,19 @@ flowFile = session.write(flowFile, {inputStream, outputStream -&gt;
 	             
 	        	while (cellIterator.hasNext()) {
 	                	Cell cell = cellIterator.next()
-	                	record = record + cell.toString() + ','
+	                	if (cell.getCellType().name().equals("NUMERIC")){
+                			double dblNum=(double)cell.getNumericCellValue()
+                			int intNum=(int)cell.getNumericCellValue()
+                			if (dblNum-intNum==0.0) {
+                    				record = record + (intNum.toString()) + ',';
+                			}
+                			else {
+                    				record = record + (cell.toString()) + ',';
+                			}
+           			}
+				else {
+                			record = record + (cell.toString()) + ','
+           			 }
 	            	}	            
 	            
 	            	if(rowNum &gt; 0){
@@ -5590,275 +5660,9 @@ session.transfer(flowFile, REL_SUCCESS)</value>
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
-                            <style/>
-                            <type>org.apache.nifi.processors.script.ExecuteScript</type>
-                        </processors>
-                        <processors>
-                            <id>c7025084-4c77-3946-0000-000000000000</id>
-                            <parentGroupId>5a7325e1-cdb7-3dd4-0000-000000000000</parentGroupId>
-                            <position>
-<x>378.57801782048887</x>
-<y>541.8386600499521</y>
-                            </position>
-                            <bundle>
-<artifact>nifi-standard-nar</artifact>
-<group>org.apache.nifi</group>
-<version>1.7.0.3.2.0.0-520</version>
-                            </bundle>
-                            <config>
-<bulletinLevel>WARN</bulletinLevel>
-<comments></comments>
-<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-<descriptors>
-    <entry>
-        <key>Hostname</key>
-        <value>
-            <name>Hostname</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Port</key>
-        <value>
-            <name>Port</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Username</key>
-        <value>
-            <name>Username</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Password</key>
-        <value>
-            <name>Password</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Private Key Path</key>
-        <value>
-            <name>Private Key Path</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Private Key Passphrase</key>
-        <value>
-            <name>Private Key Passphrase</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Remote Path</key>
-        <value>
-            <name>Remote Path</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Distributed Cache Service</key>
-        <value>
-            <identifiesControllerService>org.apache.nifi.distributed.cache.client.DistributedMapCacheClient</identifiesControllerService>
-            <name>Distributed Cache Service</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Search Recursively</key>
-        <value>
-            <name>Search Recursively</name>
-        </value>
-    </entry>
-    <entry>
-        <key>File Filter Regex</key>
-        <value>
-            <name>File Filter Regex</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Path Filter Regex</key>
-        <value>
-            <name>Path Filter Regex</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Ignore Dotted Files</key>
-        <value>
-            <name>Ignore Dotted Files</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Strict Host Key Checking</key>
-        <value>
-            <name>Strict Host Key Checking</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Host Key File</key>
-        <value>
-            <name>Host Key File</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Connection Timeout</key>
-        <value>
-            <name>Connection Timeout</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Data Timeout</key>
-        <value>
-            <name>Data Timeout</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Send Keep Alive On Timeout</key>
-        <value>
-            <name>Send Keep Alive On Timeout</name>
-        </value>
-    </entry>
-    <entry>
-        <key>target-system-timestamp-precision</key>
-        <value>
-            <name>target-system-timestamp-precision</name>
-        </value>
-    </entry>
-    <entry>
-        <key>proxy-configuration-service</key>
-        <value>
-            <identifiesControllerService>org.apache.nifi.proxy.ProxyConfigurationService</identifiesControllerService>
-            <name>proxy-configuration-service</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Proxy Type</key>
-        <value>
-            <name>Proxy Type</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Proxy Host</key>
-        <value>
-            <name>Proxy Host</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Proxy Port</key>
-        <value>
-            <name>Proxy Port</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Http Proxy Username</key>
-        <value>
-            <name>Http Proxy Username</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Http Proxy Password</key>
-        <value>
-            <name>Http Proxy Password</name>
-        </value>
-    </entry>
-</descriptors>
-<executionNode>PRIMARY</executionNode>
-<lossTolerant>false</lossTolerant>
-<penaltyDuration>30 sec</penaltyDuration>
-<properties>
-    <entry>
-        <key>Hostname</key>
-    </entry>
-    <entry>
-        <key>Port</key>
-        <value>22</value>
-    </entry>
-    <entry>
-        <key>Username</key>
-    </entry>
-    <entry>
-        <key>Password</key>
-    </entry>
-    <entry>
-        <key>Private Key Path</key>
-    </entry>
-    <entry>
-        <key>Private Key Passphrase</key>
-    </entry>
-    <entry>
-        <key>Remote Path</key>
-        <value>.</value>
-    </entry>
-    <entry>
-        <key>Distributed Cache Service</key>
-    </entry>
-    <entry>
-        <key>Search Recursively</key>
-        <value>false</value>
-    </entry>
-    <entry>
-        <key>File Filter Regex</key>
-    </entry>
-    <entry>
-        <key>Path Filter Regex</key>
-    </entry>
-    <entry>
-        <key>Ignore Dotted Files</key>
-        <value>true</value>
-    </entry>
-    <entry>
-        <key>Strict Host Key Checking</key>
-        <value>false</value>
-    </entry>
-    <entry>
-        <key>Host Key File</key>
-    </entry>
-    <entry>
-        <key>Connection Timeout</key>
-        <value>30 sec</value>
-    </entry>
-    <entry>
-        <key>Data Timeout</key>
-        <value>30 sec</value>
-    </entry>
-    <entry>
-        <key>Send Keep Alive On Timeout</key>
-        <value>true</value>
-    </entry>
-    <entry>
-        <key>target-system-timestamp-precision</key>
-        <value>auto-detect</value>
-    </entry>
-    <entry>
-        <key>proxy-configuration-service</key>
-    </entry>
-    <entry>
-        <key>Proxy Type</key>
-        <value>DIRECT</value>
-    </entry>
-    <entry>
-        <key>Proxy Host</key>
-    </entry>
-    <entry>
-        <key>Proxy Port</key>
-    </entry>
-    <entry>
-        <key>Http Proxy Username</key>
-    </entry>
-    <entry>
-        <key>Http Proxy Password</key>
-    </entry>
-</properties>
-<runDurationMillis>0</runDurationMillis>
-<schedulingPeriod>0 sec</schedulingPeriod>
-<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-<yieldDuration>1 sec</yieldDuration>
-                            </config>
-                            <executionNodeRestricted>true</executionNodeRestricted>
-                            <name>ListSFTP</name>
-                            <relationships>
-<autoTerminate>false</autoTerminate>
-<name>success</name>
-                            </relationships>
                             <state>STOPPED</state>
                             <style/>
-                            <type>org.apache.nifi.processors.standard.ListSFTP</type>
+                            <type>org.apache.nifi.processors.script.ExecuteScript</type>
                         </processors>
                         <processors>
                             <id>c757933b-3b6c-3628-0000-000000000000</id>
@@ -6008,7 +5812,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
@@ -6362,7 +6166,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>conf</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>INPUT_PORT</type>
                         </inputPorts>
                         <outputPorts>
@@ -6375,7 +6179,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>splitFailure</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>OUTPUT_PORT</type>
                         </outputPorts>
                         <outputPorts>
@@ -6388,7 +6192,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>parsedFile</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>OUTPUT_PORT</type>
                         </outputPorts>
                         <outputPorts>
@@ -6401,7 +6205,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>evaluateFailure</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>OUTPUT_PORT</type>
                         </outputPorts>
                         <processors>
@@ -6466,7 +6270,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
 <autoTerminate>false</autoTerminate>
 <name>split</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.SplitJson</type>
                         </processors>
@@ -6572,7 +6376,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
@@ -6668,7 +6472,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
 <autoTerminate>true</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
                         </processors>
@@ -6734,7 +6538,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
 <autoTerminate>false</autoTerminate>
 <name>split</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.SplitJson</type>
                         </processors>
@@ -6800,7 +6604,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
 <autoTerminate>false</autoTerminate>
 <name>split</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.SplitJson</type>
                         </processors>
@@ -6916,7 +6720,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
 <autoTerminate>true</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
                         </processors>
@@ -7022,7 +6826,7 @@ session.transfer(flowFile, REL_SUCCESS)</value>
 <autoTerminate>true</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
                         </processors>
@@ -9656,7 +9460,7 @@ if (flowfile != None):
                         <autoTerminate>false</autoTerminate>
                         <name>success</name>
                     </relationships>
-                    <state>RUNNING</state>
+                    <state>STOPPED</state>
                     <style/>
                     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                 </processors>
@@ -9763,7 +9567,7 @@ if (flowfile != None):
                     <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                     <destination>
                         <groupId>84873335-3f5f-3967-0000-000000000000</groupId>
-                        <id>0a910f40-55fb-3a66-0000-000000000000</id>
+                        <id>cd617d39-5539-3c8b-0000-000000000000</id>
                         <type>PROCESSOR</type>
                     </destination>
                     <flowFileExpiration>0 sec</flowFileExpiration>
@@ -9930,8 +9734,8 @@ if (flowfile != None):
                     <id>0a910f40-55fb-3a66-0000-000000000000</id>
                     <parentGroupId>84873335-3f5f-3967-0000-000000000000</parentGroupId>
                     <position>
-                        <x>1044.0</x>
-                        <y>744.5</y>
+                        <x>461.37249755859375</x>
+                        <y>1018.623046875</y>
                     </position>
                     <bundle>
                         <artifact>nifi-standard-nar</artifact>
@@ -10629,7 +10433,8 @@ if (flowfile != None):
                             </entry>
                             <entry>
 <key>Replacement Value</key>
-<value>CREATE TABLE ${table_name} ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe' STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat' OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat' LOCATION '${hdfs_path}' TBLPROPERTIES ('avro.schema.literal'='${avro.schema}');</value>
+<value>CREATE TABLE IF NOT EXISTS ${table_name} ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe' STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat' OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat' LOCATION '${hdfs_path}' TBLPROPERTIES ('avro.schema.literal'='${avro.schema}');
+ALTER TABLE ${table_name} SET TBLPROPERTIES ('avro.schema.literal'='${avro.schema}');</value>
                             </entry>
                             <entry>
 <key>Character Set</key>
@@ -10671,8 +10476,8 @@ if (flowfile != None):
                     <id>cd617d39-5539-3c8b-0000-000000000000</id>
                     <parentGroupId>84873335-3f5f-3967-0000-000000000000</parentGroupId>
                     <position>
-                        <x>605.3175831387399</x>
-                        <y>998.1683049248634</y>
+                        <x>1123.8283253262398</x>
+                        <y>742.6299748467384</y>
                     </position>
                     <bundle>
                         <artifact>nifi-standard-nar</artifact>
@@ -11760,7 +11565,7 @@ if (flowfile != None):
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>schema</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>OUTPUT_PORT</type>
                         </outputPorts>
                         <processGroups>
@@ -11865,7 +11670,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>conversionFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <processors>
@@ -12197,7 +12002,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.PutSFTP</type>
 </processors>
@@ -12417,7 +12222,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>original</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.MergeContent</type>
 </processors>
@@ -12520,7 +12325,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.ReplaceText</type>
 </processors>
@@ -12596,7 +12401,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -12706,7 +12511,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>evaluateFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <processors>
@@ -12781,7 +12586,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -12884,7 +12689,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.ReplaceText</type>
 </processors>
@@ -13104,7 +12909,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>original</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.MergeContent</type>
 </processors>
@@ -13437,7 +13242,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.PutSFTP</type>
 </processors>
@@ -13929,7 +13734,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>mssqlTables</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <outputPorts>
@@ -13942,7 +13747,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>queryFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <outputPorts>
@@ -13955,7 +13760,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>querySuccess</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <outputPorts>
@@ -13968,7 +13773,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>conversionFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <processors>
@@ -14208,7 +14013,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.script.ExecuteScript</type>
 </processors>
@@ -14284,7 +14089,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -14356,7 +14161,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.avro.ExtractAvroMetadata</type>
 </processors>
@@ -14418,7 +14223,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>unmatched</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
 </processors>
@@ -14914,7 +14719,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -15027,7 +14832,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.ExecuteSQL</type>
 </processors>
@@ -15137,7 +14942,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>OracleFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <processors>
@@ -15356,7 +15161,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>original</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.MergeContent</type>
 </processors>
@@ -15432,7 +15237,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -15765,7 +15570,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.PutSFTP</type>
 </processors>
@@ -15868,7 +15673,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.ReplaceText</type>
 </processors>
@@ -15978,7 +15783,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>splitFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <processors>
@@ -16197,7 +16002,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>original</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.MergeContent</type>
 </processors>
@@ -16530,7 +16335,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.PutSFTP</type>
 </processors>
@@ -16606,7 +16411,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -16709,7 +16514,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.ReplaceText</type>
 </processors>
@@ -17201,7 +17006,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>oracleTables</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <outputPorts>
@@ -17214,7 +17019,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>queryFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <outputPorts>
@@ -17227,7 +17032,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>querySuccess</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <outputPorts>
@@ -17240,7 +17045,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>conversionFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <processors>
@@ -17315,7 +17120,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -17391,7 +17196,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -17680,7 +17485,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>unmatched</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
 </processors>
@@ -17792,7 +17597,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.ExecuteSQL</type>
 </processors>
@@ -17903,7 +17708,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.script.ExecuteScript</type>
 </processors>
@@ -18168,7 +17973,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.kite.ConvertAvroSchema</type>
 </processors>
@@ -18387,7 +18192,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>failure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <processors>
@@ -18462,7 +18267,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -18795,7 +18600,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.PutSFTP</type>
 </processors>
@@ -19015,7 +18820,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>original</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.MergeContent</type>
 </processors>
@@ -19125,7 +18930,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>SqlServerFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <processors>
@@ -19344,7 +19149,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>original</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.MergeContent</type>
 </processors>
@@ -19677,7 +19482,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.PutSFTP</type>
 </processors>
@@ -19753,7 +19558,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -19856,7 +19661,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.ReplaceText</type>
 </processors>
@@ -20071,7 +19876,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>mssqlTables</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <outputPorts>
@@ -20084,7 +19889,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>schema</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <outputPorts>
@@ -20097,7 +19902,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>queryFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <processors>
@@ -20212,7 +20017,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>unmatched</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
 </processors>
@@ -20283,7 +20088,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.avro.ConvertAvroToJSON</type>
 </processors>
@@ -20359,7 +20164,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -20421,7 +20226,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>unmatched</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
 </processors>
@@ -20534,7 +20339,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.ExecuteSQL</type>
 </processors>
@@ -20610,7 +20415,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -20699,7 +20504,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>success</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <processors>
@@ -20774,7 +20579,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -21107,7 +20912,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.PutSFTP</type>
 </processors>
@@ -21327,7 +21132,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>original</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.MergeContent</type>
 </processors>
@@ -22317,7 +22122,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>confFile</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <outputPorts>
@@ -22330,7 +22135,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>splitFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <outputPorts>
@@ -22343,7 +22148,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>evaluateFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <outputPorts>
@@ -22356,7 +22161,7 @@ except Exception as ERROR:
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>parsedFile</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <processors>
@@ -22471,7 +22276,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>unmatched</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
 </processors>
@@ -22537,7 +22342,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>split</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.SplitJson</type>
 </processors>
@@ -22673,7 +22478,7 @@ except Exception as ERROR:
         <autoTerminate>true</autoTerminate>
         <name>unmatched</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
 </processors>
@@ -22779,7 +22584,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -22845,7 +22650,7 @@ except Exception as ERROR:
         <autoTerminate>false</autoTerminate>
         <name>split</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.SplitJson</type>
 </processors>
@@ -22968,7 +22773,7 @@ except Exception as ERROR:
 <autoTerminate>true</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.hadoop.DeleteHDFS</type>
                         </processors>
@@ -23044,7 +22849,7 @@ except Exception as ERROR:
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
@@ -23120,7 +22925,7 @@ except Exception as ERROR:
 <autoTerminate>true</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
                         </processors>
@@ -23182,7 +22987,7 @@ except Exception as ERROR:
 <autoTerminate>false</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
                         </processors>
@@ -23858,7 +23663,7 @@ if (flowfile != None):
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.script.ExecuteScript</type>
                         </processors>
@@ -24046,7 +23851,7 @@ if (flowfile != None):
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
@@ -24271,7 +24076,7 @@ if (flowfile != None):
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>schema</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>INPUT_PORT</type>
                         </inputPorts>
                         <processors>
@@ -24702,7 +24507,7 @@ if (flowfile != None):
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.ReplaceText</type>
                         </processors>
@@ -24799,7 +24604,7 @@ if (flowfile != None):
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.hive.PutHiveQL</type>
                         </processors>
@@ -28068,7 +27873,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>schema</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <outputPorts>
@@ -28081,7 +27886,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>AtlasFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <processGroups>
@@ -28165,7 +27970,7 @@ if (flowfile != None):
             <comments></comments>
             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
             <name>failure</name>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <type>INPUT_PORT</type>
         </inputPorts>
         <processors>
@@ -28497,7 +28302,7 @@ if (flowfile != None):
                 <autoTerminate>true</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.standard.PutSFTP</type>
         </processors>
@@ -28573,7 +28378,7 @@ if (flowfile != None):
                 <autoTerminate>false</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
@@ -28793,7 +28598,7 @@ if (flowfile != None):
                 <autoTerminate>true</autoTerminate>
                 <name>original</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.standard.MergeContent</type>
         </processors>
@@ -28873,7 +28678,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -28935,7 +28740,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>unmatched</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
 </processors>
@@ -29168,7 +28973,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.script.ExecuteScript</type>
 </processors>
@@ -29278,7 +29083,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>evaluateFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <processors>
@@ -29610,7 +29415,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.PutSFTP</type>
 </processors>
@@ -29830,7 +29635,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>original</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.MergeContent</type>
 </processors>
@@ -29906,7 +29711,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -30009,7 +29814,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.ReplaceText</type>
 </processors>
@@ -30119,7 +29924,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>splitFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <processors>
@@ -30338,7 +30143,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>original</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.MergeContent</type>
 </processors>
@@ -30414,7 +30219,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -30517,7 +30322,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.ReplaceText</type>
 </processors>
@@ -30850,7 +30655,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.PutSFTP</type>
 </processors>
@@ -31128,7 +30933,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>conf</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>INPUT_PORT</type>
 </inputPorts>
 <outputPorts>
@@ -31141,7 +30946,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>evaluateFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <outputPorts>
@@ -31154,7 +30959,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>splitFailure</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <outputPorts>
@@ -31167,7 +30972,7 @@ if (flowfile != None):
     <comments></comments>
     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
     <name>parsedFile</name>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <type>OUTPUT_PORT</type>
 </outputPorts>
 <processors>
@@ -31262,7 +31067,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>success</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
 </processors>
@@ -31328,7 +31133,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>split</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.SplitJson</type>
 </processors>
@@ -31394,7 +31199,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>split</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.SplitJson</type>
 </processors>
@@ -31510,7 +31315,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>unmatched</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
 </processors>
@@ -31616,7 +31421,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>unmatched</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
 </processors>
@@ -31682,7 +31487,7 @@ if (flowfile != None):
         <autoTerminate>false</autoTerminate>
         <name>split</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.SplitJson</type>
 </processors>
@@ -31778,7 +31583,7 @@ if (flowfile != None):
         <autoTerminate>true</autoTerminate>
         <name>unmatched</name>
     </relationships>
-    <state>RUNNING</state>
+    <state>STOPPED</state>
     <style/>
     <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
 </processors>
@@ -31901,7 +31706,7 @@ if (flowfile != None):
 <autoTerminate>true</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.hadoop.DeleteHDFS</type>
                         </processors>
@@ -32285,7 +32090,7 @@ if (flowfile != None):
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
@@ -33619,43 +33424,22 @@ if (flowfile != None):
                     <comments></comments>
                     <contents>
                         <connections>
-                            <id>05451892-5254-34a3-0000-000000000000</id>
+                            <id>0af07de5-6e78-370b-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>81978d0c-fdf1-38b7-0000-000000000000</id>
+<id>bcad12e4-3939-3bce-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
                             <labelIndex>1</labelIndex>
                             <name></name>
-                            <selectedRelationships>success</selectedRelationships>
+                            <selectedRelationships>append</selectedRelationships>
                             <source>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>7b7b8b91-7896-30bf-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </source>
-                            <zIndex>0</zIndex>
-                        </connections>
-                        <connections>
-                            <id>139b9ad2-a9cd-328d-0000-000000000000</id>
-                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
-                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <destination>
-<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>c4934942-9bf0-3daf-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </destination>
-                            <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
-                            <name></name>
-                            <selectedRelationships>success</selectedRelationships>
-                            <source>
-<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>ce339eab-8c9c-3df7-0000-000000000000</id>
+<id>1e9ecf97-afd3-39b3-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </source>
                             <zIndex>0</zIndex>
@@ -33665,17 +33449,13 @@ if (flowfile != None):
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>185.43240356445312</x>
-<y>901.217529296875</y>
-                            </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
 <id>e105635d-79e1-3b02-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>success</selectedRelationships>
                             <source>
@@ -33690,17 +33470,13 @@ if (flowfile != None):
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>196.69232940673828</x>
-<y>1205.2357177734375</y>
-                            </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>4c44042f-a12c-32a7-0000-000000000000</id>
+<id>1e9ecf97-afd3-39b3-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>merged</selectedRelationships>
                             <source>
@@ -33736,17 +33512,13 @@ if (flowfile != None):
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>191.6879425048828</x>
-<y>1053.85205078125</y>
-                            </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
 <id>57a8f46c-5e84-31ab-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>success</selectedRelationships>
                             <source>
@@ -33757,39 +33529,10 @@ if (flowfile != None):
                             <zIndex>0</zIndex>
                         </connections>
                         <connections>
-                            <id>37bff0e7-be4a-357a-0000-000000000000</id>
+                            <id>3704ee0a-a8b7-370e-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>829.8177490234375</x>
-<y>1038.3634033203125</y>
-                            </bends>
-                            <destination>
-<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>ba117ffe-710e-3845-0000-000000000000</id>
-<type>OUTPUT_PORT</type>
-                            </destination>
-                            <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
-                            <name></name>
-                            <selectedRelationships>failure</selectedRelationships>
-                            <source>
-<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>e105635d-79e1-3b02-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </source>
-                            <zIndex>0</zIndex>
-                        </connections>
-                        <connections>
-                            <id>3cad669a-853d-388e-0000-000000000000</id>
-                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
-                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>198.291259765625</x>
-<y>1357.9742431640625</y>
-                            </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
 <id>3a86e2d3-0154-3279-0000-000000000000</id>
@@ -33801,7 +33544,32 @@ if (flowfile != None):
                             <selectedRelationships>success</selectedRelationships>
                             <source>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>4c44042f-a12c-32a7-0000-000000000000</id>
+<id>3ee1d61f-bc9a-399d-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>37bff0e7-be4a-357a-0000-000000000000</id>
+                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <bends>
+<x>855.9253540039062</x>
+<y>1155.8517456054688</y>
+                            </bends>
+                            <destination>
+<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
+<id>ba117ffe-710e-3845-0000-000000000000</id>
+<type>OUTPUT_PORT</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>0</labelIndex>
+                            <name></name>
+                            <selectedRelationships>failure</selectedRelationships>
+                            <source>
+<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
+<id>e105635d-79e1-3b02-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </source>
                             <zIndex>0</zIndex>
@@ -33811,63 +33579,18 @@ if (flowfile != None):
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>182.93019104003906</x>
-<y>603.4547729492188</y>
-                            </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
 <id>8409f8d8-48da-3bc6-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>success</selectedRelationships>
                             <source>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
 <id>ce339eab-8c9c-3df7-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </source>
-                            <zIndex>0</zIndex>
-                        </connections>
-                        <connections>
-                            <id>42ff862c-bfa8-3462-0000-000000000000</id>
-                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
-                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <destination>
-<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>0b698ae8-9a97-3c16-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </destination>
-                            <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
-                            <name></name>
-                            <source>
-<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>adf292d8-aec7-333c-0000-000000000000</id>
-<type>INPUT_PORT</type>
-                            </source>
-                            <zIndex>0</zIndex>
-                        </connections>
-                        <connections>
-                            <id>4cb4c3f1-df0c-3ada-0000-000000000000</id>
-                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
-                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <destination>
-<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>4404ef1b-d510-39bd-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </destination>
-                            <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
-                            <name></name>
-                            <selectedRelationships>success</selectedRelationships>
-                            <source>
-<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>c4934942-9bf0-3daf-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </source>
                             <zIndex>0</zIndex>
@@ -33897,43 +33620,18 @@ if (flowfile != None):
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>189.1857147216797</x>
-<y>752.336181640625</y>
-                            </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
 <id>ced9d2c6-818a-3135-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>success</selectedRelationships>
                             <source>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
 <id>8409f8d8-48da-3bc6-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </source>
-                            <zIndex>0</zIndex>
-                        </connections>
-                        <connections>
-                            <id>6095b50c-77ca-3497-0000-000000000000</id>
-                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
-                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <destination>
-<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>8409f8d8-48da-3bc6-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </destination>
-                            <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
-                            <name></name>
-                            <selectedRelationships>success</selectedRelationships>
-                            <source>
-<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>81978d0c-fdf1-38b7-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </source>
                             <zIndex>0</zIndex>
@@ -33943,17 +33641,13 @@ if (flowfile != None):
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>870.2428588867188</x>
-<y>701.4288330078125</y>
-                            </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
 <id>ce339eab-8c9c-3df7-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>unmatched</selectedRelationships>
                             <source>
@@ -33964,34 +33658,34 @@ if (flowfile != None):
                             <zIndex>0</zIndex>
                         </connections>
                         <connections>
-                            <id>777e536a-419f-3793-0000-000000000000</id>
+                            <id>82878090-af6c-31fe-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>2e6c8790-66c3-3ede-0000-000000000000</id>
+<id>3ee1d61f-bc9a-399d-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
                             <labelIndex>1</labelIndex>
                             <name></name>
-                            <selectedRelationships>not-found</selectedRelationships>
+                            <selectedRelationships>replace</selectedRelationships>
                             <source>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>0b698ae8-9a97-3c16-0000-000000000000</id>
+<id>1e9ecf97-afd3-39b3-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </source>
                             <zIndex>0</zIndex>
                         </connections>
                         <connections>
-                            <id>aef009bb-2558-3422-0000-000000000000</id>
+                            <id>bb44a1ef-7fe7-36e0-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>7b7b8b91-7896-30bf-0000-000000000000</id>
+<id>ce339eab-8c9c-3df7-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
@@ -34000,7 +33694,7 @@ if (flowfile != None):
                             <selectedRelationships>success</selectedRelationships>
                             <source>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>0b698ae8-9a97-3c16-0000-000000000000</id>
+<id>1e70c853-8e24-35c8-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </source>
                             <zIndex>0</zIndex>
@@ -34031,17 +33725,13 @@ if (flowfile != None):
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>1386.6998291015625</x>
-<y>509.2794189453125</y>
-                            </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
 <id>ff61df14-60d6-3f51-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>success</selectedRelationships>
                             <source>
@@ -34056,17 +33746,13 @@ if (flowfile != None):
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>182.93019104003906</x>
-<y>452.0711975097656</y>
-                            </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
-<id>ce339eab-8c9c-3df7-0000-000000000000</id>
+<id>1e70c853-8e24-35c8-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>success</selectedRelationships>
                             <source>
@@ -34077,21 +33763,38 @@ if (flowfile != None):
                             <zIndex>0</zIndex>
                         </connections>
                         <connections>
+                            <id>e07e318b-0bcf-3a15-0000-000000000000</id>
+                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
+<id>3a86e2d3-0154-3279-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
+<id>bcad12e4-3939-3bce-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
                             <id>e47abdec-bfc0-3c3e-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <bends>
-<x>863.8157348632812</x>
-<y>322.7610168457031</y>
-                            </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
 <id>77f1980c-815e-3231-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>failure</selectedRelationships>
                             <source>
@@ -34107,8 +33810,8 @@ if (flowfile != None):
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                             <bends>
-<x>826.2317504882812</x>
-<y>828.3228759765625</y>
+<x>854.3786010742188</x>
+<y>677.0394897460938</y>
                             </bends>
                             <destination>
 <groupId>06014c5d-eff8-3d08-0000-000000000000</groupId>
@@ -34126,108 +33829,6 @@ if (flowfile != None):
                             </source>
                             <zIndex>0</zIndex>
                         </connections>
-                        <controllerServices>
-                            <id>6615b9c1-1d62-3f95-0000-000000000000</id>
-                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
-                            <bundle>
-<artifact>nifi-hbase_1_1_2-client-service-nar</artifact>
-<group>org.apache.nifi</group>
-<version>1.7.0.3.2.0.0-520</version>
-                            </bundle>
-                            <comments></comments>
-                            <descriptors>
-<entry>
-    <key>Hadoop Configuration Files</key>
-    <value>
-        <name>Hadoop Configuration Files</name>
-    </value>
-</entry>
-<entry>
-    <key>kerberos-credentials-service</key>
-    <value>
-        <identifiesControllerService>org.apache.nifi.kerberos.KerberosCredentialsService</identifiesControllerService>
-        <name>kerberos-credentials-service</name>
-    </value>
-</entry>
-<entry>
-    <key>Kerberos Principal</key>
-    <value>
-        <name>Kerberos Principal</name>
-    </value>
-</entry>
-<entry>
-    <key>Kerberos Keytab</key>
-    <value>
-        <name>Kerberos Keytab</name>
-    </value>
-</entry>
-<entry>
-    <key>ZooKeeper Quorum</key>
-    <value>
-        <name>ZooKeeper Quorum</name>
-    </value>
-</entry>
-<entry>
-    <key>ZooKeeper Client Port</key>
-    <value>
-        <name>ZooKeeper Client Port</name>
-    </value>
-</entry>
-<entry>
-    <key>ZooKeeper ZNode Parent</key>
-    <value>
-        <name>ZooKeeper ZNode Parent</name>
-    </value>
-</entry>
-<entry>
-    <key>HBase Client Retries</key>
-    <value>
-        <name>HBase Client Retries</name>
-    </value>
-</entry>
-<entry>
-    <key>Phoenix Client JAR Location</key>
-    <value>
-        <name>Phoenix Client JAR Location</name>
-    </value>
-</entry>
-                            </descriptors>
-                            <name>HBase_1_1_2_ClientService</name>
-                            <persistsState>false</persistsState>
-                            <properties>
-<entry>
-    <key>Hadoop Configuration Files</key>
-    <value>/etc/nifi/hbase-site.xml,/etc/nifi/core-site.xml</value>
-</entry>
-<entry>
-    <key>kerberos-credentials-service</key>
-</entry>
-<entry>
-    <key>Kerberos Principal</key>
-</entry>
-<entry>
-    <key>Kerberos Keytab</key>
-</entry>
-<entry>
-    <key>ZooKeeper Quorum</key>
-</entry>
-<entry>
-    <key>ZooKeeper Client Port</key>
-</entry>
-<entry>
-    <key>ZooKeeper ZNode Parent</key>
-</entry>
-<entry>
-    <key>HBase Client Retries</key>
-    <value>1</value>
-</entry>
-<entry>
-    <key>Phoenix Client JAR Location</key>
-</entry>
-                            </properties>
-                            <state>ENABLED</state>
-                            <type>org.apache.nifi.hbase.HBase_1_1_2_ClientService</type>
-                        </controllerServices>
                         <controllerServices>
                             <id>899d9803-00e5-3480-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
@@ -34400,80 +34001,12 @@ if (flowfile != None):
                             <state>ENABLED</state>
                             <type>org.apache.nifi.avro.AvroRecordSetWriter</type>
                         </controllerServices>
-                        <controllerServices>
-                            <id>e1e3821c-379b-34a5-0000-000000000000</id>
-                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
-                            <bundle>
-<artifact>nifi-hbase_1_1_2-client-service-nar</artifact>
-<group>org.apache.nifi</group>
-<version>1.7.0.3.2.0.0-520</version>
-                            </bundle>
-                            <comments></comments>
-                            <descriptors>
-<entry>
-    <key>HBase Cache Table Name</key>
-    <value>
-        <name>HBase Cache Table Name</name>
-    </value>
-</entry>
-<entry>
-    <key>hb-lu-authorizations</key>
-    <value>
-        <name>hb-lu-authorizations</name>
-    </value>
-</entry>
-<entry>
-    <key>HBase Client Service</key>
-    <value>
-        <identifiesControllerService>org.apache.nifi.hbase.HBaseClientService</identifiesControllerService>
-        <name>HBase Client Service</name>
-    </value>
-</entry>
-<entry>
-    <key>HBase Column Family</key>
-    <value>
-        <name>HBase Column Family</name>
-    </value>
-</entry>
-<entry>
-    <key>HBase Column Qualifier</key>
-    <value>
-        <name>HBase Column Qualifier</name>
-    </value>
-</entry>
-                            </descriptors>
-                            <name>HBase_1_1_2_ClientMapCacheService</name>
-                            <persistsState>false</persistsState>
-                            <properties>
-<entry>
-    <key>HBase Cache Table Name</key>
-    <value>row_numbers</value>
-</entry>
-<entry>
-    <key>hb-lu-authorizations</key>
-</entry>
-<entry>
-    <key>HBase Client Service</key>
-    <value>6615b9c1-1d62-3f95-0000-000000000000</value>
-</entry>
-<entry>
-    <key>HBase Column Family</key>
-    <value>row</value>
-</entry>
-<entry>
-    <key>HBase Column Qualifier</key>
-    <value>table_name</value>
-</entry>
-                            </properties>
-                            <state>ENABLED</state>
-                            <type>org.apache.nifi.hbase.HBase_1_1_2_ClientMapCacheService</type>
-                        </controllerServices>
                         <inputPorts>
                             <id>adf292d8-aec7-333c-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>364.93715126322104</x>
-<y>171.28271595023148</y>
+<x>75.86831123636557</x>
+<y>175.27905384085648</y>
                             </position>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
@@ -34485,8 +34018,8 @@ if (flowfile != None):
                             <id>ba117ffe-710e-3845-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>706.7421365217854</x>
-<y>897.9263265290247</y>
+<x>735.2338357405354</x>
+<y>853.2381551423059</y>
                             </position>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
@@ -34498,8 +34031,8 @@ if (flowfile != None):
                             <id>c836bb21-1d0f-3792-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>365.4163863402542</x>
-<y>1567.3054192956554</y>
+<x>-230.35859714946886</x>
+<y>1571.3017571862804</y>
                             </position>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
@@ -34511,8 +34044,8 @@ if (flowfile != None):
                             <id>dcf920c2-487e-3bb9-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>956.6178451851638</x>
-<y>769.479708418904</y>
+<x>1017.8950668648513</x>
+<y>690.884981856404</y>
                             </position>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
@@ -34521,11 +34054,102 @@ if (flowfile != None):
                             <type>OUTPUT_PORT</type>
                         </outputPorts>
                         <processors>
-                            <id>0b698ae8-9a97-3c16-0000-000000000000</id>
+                            <id>1e70c853-8e24-35c8-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>-355.9412131632412</x>
-<y>196.00346641231988</y>
+<x>-285.3585971494689</x>
+<y>296.36080735921695</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-scripting-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Script Engine</key>
+        <value>
+            <name>Script Engine</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Script File</key>
+        <value>
+            <name>Script File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Script Body</key>
+        <value>
+            <name>Script Body</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Module Directory</key>
+        <value>
+            <name>Module Directory</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Script Engine</key>
+        <value>Groovy</value>
+    </entry>
+    <entry>
+        <key>Script File</key>
+    </entry>
+    <entry>
+        <key>Script Body</key>
+        <value>flowFileList = session.get(100)
+noOfFiles=flowFileList.size()
+fileNumber=1
+if(!flowFileList.isEmpty()) {
+   flowFileList.each { flowFile -&gt; 
+	flowFile = session.putAttribute(flowFile, 'fragment.count', (String)noOfFiles)
+	flowFile = session.putAttribute(flowFile, 'fragment.index', (String)fileNumber)
+	session.transfer(flowFile, REL_SUCCESS)
+	fileNumber++
+   }
+}</value>
+    </entry>
+    <entry>
+        <key>Module Directory</key>
+        <value>/usr/hdf/3.2.0.0-520/nifi/lib</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>ExecuteScript</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.script.ExecuteScript</type>
+                        </processors>
+                        <processors>
+                            <id>1e9ecf97-afd3-39b3-0000-000000000000</id>
+                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
+                            <position>
+<x>-287.67794262371206</x>
+<y>761.833951325286</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -34538,34 +34162,21 @@ if (flowfile != None):
 <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
 <descriptors>
     <entry>
-        <key>Cache Entry Identifier</key>
+        <key>Routing Strategy</key>
         <value>
-            <name>Cache Entry Identifier</name>
+            <name>Routing Strategy</name>
         </value>
     </entry>
     <entry>
-        <key>Distributed Cache Service</key>
+        <key>append</key>
         <value>
-            <identifiesControllerService>org.apache.nifi.distributed.cache.client.DistributedMapCacheClient</identifiesControllerService>
-            <name>Distributed Cache Service</name>
+            <name>append</name>
         </value>
     </entry>
     <entry>
-        <key>Put Cache Value In Attribute</key>
+        <key>replace</key>
         <value>
-            <name>Put Cache Value In Attribute</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Max Length To Put In Attribute</key>
-        <value>
-            <name>Max Length To Put In Attribute</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Character Set</key>
-        <value>
-            <name>Character Set</name>
+            <name>replace</name>
         </value>
     </entry>
 </descriptors>
@@ -34574,24 +34185,16 @@ if (flowfile != None):
 <penaltyDuration>30 sec</penaltyDuration>
 <properties>
     <entry>
-        <key>Cache Entry Identifier</key>
-        <value>${tabel_name}.${schema}</value>
+        <key>Routing Strategy</key>
+        <value>Route to Property name</value>
     </entry>
     <entry>
-        <key>Distributed Cache Service</key>
-        <value>e1e3821c-379b-34a5-0000-000000000000</value>
+        <key>append</key>
+        <value>${file_action:toLower():contains("append")}</value>
     </entry>
     <entry>
-        <key>Put Cache Value In Attribute</key>
-        <value>row_number</value>
-    </entry>
-    <entry>
-        <key>Max Length To Put In Attribute</key>
-        <value>256</value>
-    </entry>
-    <entry>
-        <key>Character Set</key>
-        <value>UTF-8</value>
+        <key>replace</key>
+        <value>${file_action:toLower():contains("replace")}</value>
     </entry>
 </properties>
 <runDurationMillis>0</runDurationMillis>
@@ -34600,29 +34203,29 @@ if (flowfile != None):
 <yieldDuration>1 sec</yieldDuration>
                             </config>
                             <executionNodeRestricted>false</executionNodeRestricted>
-                            <name>FetchDistributedMapCache</name>
+                            <name>RouteOnAttribute</name>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>append</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>replace</name>
+                            </relationships>
                             <relationships>
 <autoTerminate>true</autoTerminate>
-<name>failure</name>
-                            </relationships>
-                            <relationships>
-<autoTerminate>false</autoTerminate>
-<name>not-found</name>
-                            </relationships>
-                            <relationships>
-<autoTerminate>false</autoTerminate>
-<name>success</name>
+<name>unmatched</name>
                             </relationships>
                             <state>STOPPED</state>
                             <style/>
-                            <type>org.apache.nifi.processors.standard.FetchDistributedMapCache</type>
+                            <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
                         </processors>
                         <processors>
                             <id>2e6c8790-66c3-3ede-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>310.4163863402542</x>
-<y>318.79439947368553</y>
+<x>333.72840378105</x>
+<y>296.36080735921695</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -34696,7 +34299,7 @@ if (flowfile != None):
 <properties>
     <entry>
         <key>Database Connection Pooling Service</key>
-        <value>6d43fe1e-976e-35a4-0000-000000000000</value>
+        <value>f61c29e9-0c4a-358b-0000-000000000000</value>
     </entry>
     <entry>
         <key>db-fetch-db-type</key>
@@ -34712,6 +34315,7 @@ if (flowfile != None):
     </entry>
     <entry>
         <key>Maximum-value Columns</key>
+        <value>${column_filter}</value>
     </entry>
     <entry>
         <key>Max Wait Time</key>
@@ -34751,8 +34355,8 @@ if (flowfile != None):
                             <id>3a86e2d3-0154-3279-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>310.4163863402542</x>
-<y>1364.2009837700064</y>
+<x>-285.3585971494689</x>
+<y>1308.2522533012564</y>
                             </position>
                             <bundle>
 <artifact>nifi-update-attribute-nar</artifact>
@@ -34824,94 +34428,11 @@ if (flowfile != None):
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
                         <processors>
-                            <id>4404ef1b-d510-39bd-0000-000000000000</id>
+                            <id>3ee1d61f-bc9a-399d-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>-839.8104714495337</x>
-<y>859.6967816397415</y>
-                            </position>
-                            <bundle>
-<artifact>nifi-standard-nar</artifact>
-<group>org.apache.nifi</group>
-<version>1.7.0.3.2.0.0-520</version>
-                            </bundle>
-                            <config>
-<bulletinLevel>WARN</bulletinLevel>
-<comments></comments>
-<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-<descriptors>
-    <entry>
-        <key>Cache Entry Identifier</key>
-        <value>
-            <name>Cache Entry Identifier</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Distributed Cache Service</key>
-        <value>
-            <identifiesControllerService>org.apache.nifi.distributed.cache.client.DistributedMapCacheClient</identifiesControllerService>
-            <name>Distributed Cache Service</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Cache update strategy</key>
-        <value>
-            <name>Cache update strategy</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Max cache entry size</key>
-        <value>
-            <name>Max cache entry size</name>
-        </value>
-    </entry>
-</descriptors>
-<executionNode>ALL</executionNode>
-<lossTolerant>false</lossTolerant>
-<penaltyDuration>30 sec</penaltyDuration>
-<properties>
-    <entry>
-        <key>Cache Entry Identifier</key>
-        <value>${table_name}.${schema}</value>
-    </entry>
-    <entry>
-        <key>Distributed Cache Service</key>
-        <value>e1e3821c-379b-34a5-0000-000000000000</value>
-    </entry>
-    <entry>
-        <key>Cache update strategy</key>
-        <value>replace</value>
-    </entry>
-    <entry>
-        <key>Max cache entry size</key>
-        <value>1 MB</value>
-    </entry>
-</properties>
-<runDurationMillis>0</runDurationMillis>
-<schedulingPeriod>0 sec</schedulingPeriod>
-<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-<yieldDuration>1 sec</yieldDuration>
-                            </config>
-                            <executionNodeRestricted>false</executionNodeRestricted>
-                            <name>PutDistributedMapCache</name>
-                            <relationships>
-<autoTerminate>true</autoTerminate>
-<name>failure</name>
-                            </relationships>
-                            <relationships>
-<autoTerminate>true</autoTerminate>
-<name>success</name>
-                            </relationships>
-                            <state>STOPPED</state>
-                            <style/>
-                            <type>org.apache.nifi.processors.standard.PutDistributedMapCache</type>
-                        </processors>
-                        <processors>
-                            <id>4c44042f-a12c-32a7-0000-000000000000</id>
-                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
-                            <position>
-<x>310.4163863402542</x>
-<y>1214.1260205079252</y>
+<x>-79.33759178124967</x>
+<y>1096.215449880997</y>
                             </position>
                             <bundle>
 <artifact>nifi-hadoop-nar</artifact>
@@ -35093,8 +34614,8 @@ if (flowfile != None):
                             <id>57a8f46c-5e84-31ab-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>310.4163863402542</x>
-<y>1063.5722700390288</y>
+<x>339.2293193083938</x>
+<y>761.833951325286</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -35248,8 +34769,8 @@ if (flowfile != None):
                             <id>77f1980c-815e-3231-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>900.8547844210349</x>
-<y>374.1041513092882</y>
+<x>951.4752067843161</x>
+<y>164.96216827706166</y>
                             </position>
                             <bundle>
 <artifact>nifi-update-attribute-nar</artifact>
@@ -35321,201 +34842,11 @@ if (flowfile != None):
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
                         <processors>
-                            <id>7b7b8b91-7896-30bf-0000-000000000000</id>
-                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
-                            <position>
-<x>-881.6132216135189</x>
-<y>199.50848514894227</y>
-                            </position>
-                            <bundle>
-<artifact>nifi-update-attribute-nar</artifact>
-<group>org.apache.nifi</group>
-<version>1.7.0.3.2.0.0-520</version>
-                            </bundle>
-                            <config>
-<bulletinLevel>WARN</bulletinLevel>
-<comments></comments>
-<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-<descriptors>
-    <entry>
-        <key>Delete Attributes Expression</key>
-        <value>
-            <name>Delete Attributes Expression</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Store State</key>
-        <value>
-            <name>Store State</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Stateful Variables Initial Value</key>
-        <value>
-            <name>Stateful Variables Initial Value</name>
-        </value>
-    </entry>
-    <entry>
-        <key>row_number</key>
-        <value>
-            <name>row_number</name>
-        </value>
-    </entry>
-</descriptors>
-<executionNode>ALL</executionNode>
-<lossTolerant>false</lossTolerant>
-<penaltyDuration>30 sec</penaltyDuration>
-<properties>
-    <entry>
-        <key>Delete Attributes Expression</key>
-    </entry>
-    <entry>
-        <key>Store State</key>
-        <value>Do not store state</value>
-    </entry>
-    <entry>
-        <key>Stateful Variables Initial Value</key>
-    </entry>
-    <entry>
-        <key>row_number</key>
-        <value>${row_number:isNull():ifElse('0','${row_number}')}</value>
-    </entry>
-</properties>
-<runDurationMillis>0</runDurationMillis>
-<schedulingPeriod>0 sec</schedulingPeriod>
-<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-<yieldDuration>1 sec</yieldDuration>
-                            </config>
-                            <executionNodeRestricted>false</executionNodeRestricted>
-                            <name>UpdateAttribute</name>
-                            <relationships>
-<autoTerminate>false</autoTerminate>
-<name>success</name>
-                            </relationships>
-                            <state>STOPPED</state>
-                            <style/>
-                            <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
-                        </processors>
-                        <processors>
-                            <id>81978d0c-fdf1-38b7-0000-000000000000</id>
-                            <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
-                            <position>
-<x>-886.5743651101435</x>
-<y>455.00302408512107</y>
-                            </position>
-                            <bundle>
-<artifact>nifi-standard-nar</artifact>
-<group>org.apache.nifi</group>
-<version>1.7.0.3.2.0.0-520</version>
-                            </bundle>
-                            <config>
-<bulletinLevel>WARN</bulletinLevel>
-<comments></comments>
-<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-<descriptors>
-    <entry>
-        <key>Database Connection Pooling Service</key>
-        <value>
-            <identifiesControllerService>org.apache.nifi.dbcp.DBCPService</identifiesControllerService>
-            <name>Database Connection Pooling Service</name>
-        </value>
-    </entry>
-    <entry>
-        <key>SQL select query</key>
-        <value>
-            <name>SQL select query</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Max Wait Time</key>
-        <value>
-            <name>Max Wait Time</name>
-        </value>
-    </entry>
-    <entry>
-        <key>dbf-normalize</key>
-        <value>
-            <name>dbf-normalize</name>
-        </value>
-    </entry>
-    <entry>
-        <key>dbf-user-logical-types</key>
-        <value>
-            <name>dbf-user-logical-types</name>
-        </value>
-    </entry>
-    <entry>
-        <key>dbf-default-precision</key>
-        <value>
-            <name>dbf-default-precision</name>
-        </value>
-    </entry>
-    <entry>
-        <key>dbf-default-scale</key>
-        <value>
-            <name>dbf-default-scale</name>
-        </value>
-    </entry>
-</descriptors>
-<executionNode>ALL</executionNode>
-<lossTolerant>false</lossTolerant>
-<penaltyDuration>30 sec</penaltyDuration>
-<properties>
-    <entry>
-        <key>Database Connection Pooling Service</key>
-        <value>6d43fe1e-976e-35a4-0000-000000000000</value>
-    </entry>
-    <entry>
-        <key>SQL select query</key>
-        <value>with temp_tbl as (SELECT ROW_NUMBER() OVER (ORDER BY building_code) as row,*FROM ${schema}.${table_name})
-select ${columns:replaceAll('\"',''):replaceAll('\[',''):replaceAll('\]','')} from temp_tbl where row&gt;${row_number}</value>
-    </entry>
-    <entry>
-        <key>Max Wait Time</key>
-        <value>0 seconds</value>
-    </entry>
-    <entry>
-        <key>dbf-normalize</key>
-        <value>false</value>
-    </entry>
-    <entry>
-        <key>dbf-user-logical-types</key>
-        <value>false</value>
-    </entry>
-    <entry>
-        <key>dbf-default-precision</key>
-        <value>10</value>
-    </entry>
-    <entry>
-        <key>dbf-default-scale</key>
-        <value>0</value>
-    </entry>
-</properties>
-<runDurationMillis>0</runDurationMillis>
-<schedulingPeriod>0 sec</schedulingPeriod>
-<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-<yieldDuration>1 sec</yieldDuration>
-                            </config>
-                            <executionNodeRestricted>false</executionNodeRestricted>
-                            <name>ExecuteSQL</name>
-                            <relationships>
-<autoTerminate>true</autoTerminate>
-<name>failure</name>
-                            </relationships>
-                            <relationships>
-<autoTerminate>false</autoTerminate>
-<name>success</name>
-                            </relationships>
-                            <state>STOPPED</state>
-                            <style/>
-                            <type>org.apache.nifi.processors.standard.ExecuteSQL</type>
-                        </processors>
-                        <processors>
                             <id>8409f8d8-48da-3bc6-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>310.4163863402542</x>
-<y>611.9489501839996</y>
+<x>-284.19889866314077</x>
+<y>449.7204685634906</y>
                             </position>
                             <bundle>
 <artifact>nifi-avro-nar</artifact>
@@ -35583,14 +34914,14 @@ select ${columns:replaceAll('\"',''):replaceAll('\[',''):replaceAll('\]','')} fr
                             <type>org.apache.nifi.processors.avro.ExtractAvroMetadata</type>
                         </processors>
                         <processors>
-                            <id>c4934942-9bf0-3daf-0000-000000000000</id>
+                            <id>bcad12e4-3939-3bce-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>-847.9400687752111</x>
-<y>665.8480776581282</y>
+<x>-541.6696048759408</x>
+<y>1096.215449880997</y>
                             </position>
                             <bundle>
-<artifact>nifi-standard-nar</artifact>
+<artifact>nifi-hadoop-nar</artifact>
 <group>org.apache.nifi</group>
 <version>1.7.0.3.2.0.0-520</version>
                             </bundle>
@@ -35600,46 +34931,94 @@ select ${columns:replaceAll('\"',''):replaceAll('\[',''):replaceAll('\]','')} fr
 <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
 <descriptors>
     <entry>
-        <key>Database Connection Pooling Service</key>
+        <key>Hadoop Configuration Resources</key>
         <value>
-            <identifiesControllerService>org.apache.nifi.dbcp.DBCPService</identifiesControllerService>
-            <name>Database Connection Pooling Service</name>
+            <name>Hadoop Configuration Resources</name>
         </value>
     </entry>
     <entry>
-        <key>SQL select query</key>
+        <key>kerberos-credentials-service</key>
         <value>
-            <name>SQL select query</name>
+            <identifiesControllerService>org.apache.nifi.kerberos.KerberosCredentialsService</identifiesControllerService>
+            <name>kerberos-credentials-service</name>
         </value>
     </entry>
     <entry>
-        <key>Max Wait Time</key>
+        <key>Kerberos Principal</key>
         <value>
-            <name>Max Wait Time</name>
+            <name>Kerberos Principal</name>
         </value>
     </entry>
     <entry>
-        <key>dbf-normalize</key>
+        <key>Kerberos Keytab</key>
         <value>
-            <name>dbf-normalize</name>
+            <name>Kerberos Keytab</name>
         </value>
     </entry>
     <entry>
-        <key>dbf-user-logical-types</key>
+        <key>Kerberos Relogin Period</key>
         <value>
-            <name>dbf-user-logical-types</name>
+            <name>Kerberos Relogin Period</name>
         </value>
     </entry>
     <entry>
-        <key>dbf-default-precision</key>
+        <key>Additional Classpath Resources</key>
         <value>
-            <name>dbf-default-precision</name>
+            <name>Additional Classpath Resources</name>
         </value>
     </entry>
     <entry>
-        <key>dbf-default-scale</key>
+        <key>Directory</key>
         <value>
-            <name>dbf-default-scale</name>
+            <name>Directory</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution Strategy</key>
+        <value>
+            <name>Conflict Resolution Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Block Size</key>
+        <value>
+            <name>Block Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>IO Buffer Size</key>
+        <value>
+            <name>IO Buffer Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Replication</key>
+        <value>
+            <name>Replication</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Permissions umask</key>
+        <value>
+            <name>Permissions umask</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+        <value>
+            <name>Remote Owner</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+        <value>
+            <name>Remote Group</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Compression codec</key>
+        <value>
+            <name>Compression codec</name>
         </value>
     </entry>
 </descriptors>
@@ -35648,32 +35027,54 @@ select ${columns:replaceAll('\"',''):replaceAll('\[',''):replaceAll('\]','')} fr
 <penaltyDuration>30 sec</penaltyDuration>
 <properties>
     <entry>
-        <key>Database Connection Pooling Service</key>
-        <value>6d43fe1e-976e-35a4-0000-000000000000</value>
+        <key>Hadoop Configuration Resources</key>
+        <value>/etc/nifi/hdfs-site.xml,/etc/nifi/core-site.xml</value>
     </entry>
     <entry>
-        <key>SQL select query</key>
-        <value>select count(*)  from ${schema}.${table_name}</value>
+        <key>kerberos-credentials-service</key>
     </entry>
     <entry>
-        <key>Max Wait Time</key>
-        <value>0 seconds</value>
+        <key>Kerberos Principal</key>
     </entry>
     <entry>
-        <key>dbf-normalize</key>
-        <value>false</value>
+        <key>Kerberos Keytab</key>
     </entry>
     <entry>
-        <key>dbf-user-logical-types</key>
-        <value>false</value>
+        <key>Kerberos Relogin Period</key>
+        <value>4 hours</value>
     </entry>
     <entry>
-        <key>dbf-default-precision</key>
-        <value>10</value>
+        <key>Additional Classpath Resources</key>
     </entry>
     <entry>
-        <key>dbf-default-scale</key>
-        <value>0</value>
+        <key>Directory</key>
+        <value>${hdfs_path}</value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution Strategy</key>
+        <value>append</value>
+    </entry>
+    <entry>
+        <key>Block Size</key>
+    </entry>
+    <entry>
+        <key>IO Buffer Size</key>
+    </entry>
+    <entry>
+        <key>Replication</key>
+    </entry>
+    <entry>
+        <key>Permissions umask</key>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+    </entry>
+    <entry>
+        <key>Compression codec</key>
+        <value>NONE</value>
     </entry>
 </properties>
 <runDurationMillis>0</runDurationMillis>
@@ -35682,7 +35083,7 @@ select ${columns:replaceAll('\"',''):replaceAll('\[',''):replaceAll('\]','')} fr
 <yieldDuration>1 sec</yieldDuration>
                             </config>
                             <executionNodeRestricted>false</executionNodeRestricted>
-                            <name>ExecuteSQL</name>
+                            <name>PutHDFS</name>
                             <relationships>
 <autoTerminate>true</autoTerminate>
 <name>failure</name>
@@ -35693,14 +35094,14 @@ select ${columns:replaceAll('\"',''):replaceAll('\[',''):replaceAll('\]','')} fr
                             </relationships>
                             <state>STOPPED</state>
                             <style/>
-                            <type>org.apache.nifi.processors.standard.ExecuteSQL</type>
+                            <type>org.apache.nifi.processors.hadoop.PutHDFS</type>
                         </processors>
                         <processors>
                             <id>ce339eab-8c9c-3df7-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>305.17978355705105</x>
-<y>467.2800423629034</y>
+<x>332.2238566619094</x>
+<y>449.7204685634906</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -35762,7 +35163,7 @@ select ${columns:replaceAll('\"',''):replaceAll('\[',''):replaceAll('\]','')} fr
 <properties>
     <entry>
         <key>Database Connection Pooling Service</key>
-        <value>6d43fe1e-976e-35a4-0000-000000000000</value>
+        <value>f61c29e9-0c4a-358b-0000-000000000000</value>
     </entry>
     <entry>
         <key>SQL select query</key>
@@ -35812,8 +35213,8 @@ select ${columns:replaceAll('\"',''):replaceAll('\[',''):replaceAll('\]','')} fr
                             <id>ced9d2c6-818a-3135-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>310.4163863402542</x>
-<y>766.571983677371</y>
+<x>332.7412211638625</x>
+<y>604.7024768414335</y>
                             </position>
                             <bundle>
 <artifact>nifi-scripting-nar</artifact>
@@ -35931,8 +35332,8 @@ except Exception as ERROR:
                             <id>e105635d-79e1-3b02-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>310.4163863402542</x>
-<y>916.2811511578398</y>
+<x>-287.6779330869689</x>
+<y>604.7024768414335</y>
                             </position>
                             <bundle>
 <artifact>nifi-kite-nar</artifact>
@@ -36013,8 +35414,8 @@ except Exception as ERROR:
                             <id>ff61df14-60d6-3f51-0000-000000000000</id>
                             <parentGroupId>06014c5d-eff8-3d08-0000-000000000000</parentGroupId>
                             <position>
-<x>902.0755770197391</x>
-<y>523.4794389860565</y>
+<x>934.0464022150516</x>
+<y>435.559883321994</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -36930,13 +36331,17 @@ except Exception as ERROR:
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <bends>
+<x>702.1193389892578</x>
+<y>155.26024627685547</y>
+                            </bends>
                             <destination>
 <groupId>32982135-42c9-3684-0000-000000000000</groupId>
 <id>99f08277-1879-3aa2-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>split</selectedRelationships>
                             <source>
@@ -36952,8 +36357,8 @@ except Exception as ERROR:
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                             <bends>
-<x>699.8289794921875</x>
-<y>31.0976619720459</y>
+<x>704.5477294921875</x>
+<y>8.68343448638916</y>
                             </bends>
                             <destination>
 <groupId>32982135-42c9-3684-0000-000000000000</groupId>
@@ -37001,13 +36406,17 @@ except Exception as ERROR:
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <bends>
+<x>908.566162109375</x>
+<y>-86.5774917602539</y>
+                            </bends>
                             <destination>
 <groupId>32982135-42c9-3684-0000-000000000000</groupId>
 <id>40bb8387-43d3-34b8-0000-000000000000</id>
 <type>OUTPUT_PORT</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>failure</selectedRelationships>
                             <source>
@@ -37022,13 +36431,17 @@ except Exception as ERROR:
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <bends>
+<x>712.7366333007812</x>
+<y>318.0583190917969</y>
+                            </bends>
                             <destination>
 <groupId>32982135-42c9-3684-0000-000000000000</groupId>
 <id>a511b88f-7dcc-37c5-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>matched</selectedRelationships>
                             <source>
@@ -37105,13 +36518,17 @@ except Exception as ERROR:
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <bends>
+<x>934.5194702148438</x>
+<y>224.86231231689453</y>
+                            </bends>
                             <destination>
 <groupId>32982135-42c9-3684-0000-000000000000</groupId>
 <id>40bb8387-43d3-34b8-0000-000000000000</id>
 <type>OUTPUT_PORT</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
+                            <labelIndex>0</labelIndex>
                             <name></name>
                             <selectedRelationships>failure</selectedRelationships>
                             <source>
@@ -37146,39 +36563,39 @@ except Exception as ERROR:
                             <id>0bd8f4e6-6680-3125-0000-000000000000</id>
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <position>
-<x>265.29929176536245</x>
-<y>-337.8528287528387</y>
+<x>274.3091226323193</x>
+<y>-422.7909391044012</y>
                             </position>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>confFile</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>INPUT_PORT</type>
                         </inputPorts>
                         <outputPorts>
                             <id>04855cd7-2012-3b23-0000-000000000000</id>
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <position>
-<x>265.29929176536245</x>
-<y>557.0838472725519</y>
+<x>274.3091226323193</x>
+<y>514.6147310616144</y>
                             </position>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>parsedFile</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>OUTPUT_PORT</type>
                         </outputPorts>
                         <outputPorts>
                             <id>40bb8387-43d3-34b8-0000-000000000000</id>
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <position>
-<x>852.6561862193546</x>
-<y>193.59243752190065</y>
+<x>1014.2744723521671</x>
+<y>28.434963004078384</y>
                             </position>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>evaluateFailure</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>OUTPUT_PORT</type>
                         </outputPorts>
                         <outputPorts>
@@ -37191,15 +36608,15 @@ except Exception as ERROR:
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>splitFailure</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>OUTPUT_PORT</type>
                         </outputPorts>
                         <processors>
                             <id>03448f3a-984d-3c3e-0000-000000000000</id>
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <position>
-<x>210.29929176536245</x>
-<y>-55.09077060802122</y>
+<x>219.30912263231932</x>
+<y>2.714340323375268</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -37256,7 +36673,7 @@ except Exception as ERROR:
 <autoTerminate>false</autoTerminate>
 <name>split</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.SplitJson</type>
                         </processors>
@@ -37264,8 +36681,8 @@ except Exception as ERROR:
                             <id>283ddd69-54ab-3e19-0000-000000000000</id>
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <position>
-<x>210.29929176536245</x>
-<y>-224.62722355861303</y>
+<x>219.30912263231932</x>
+<y>-313.1044421865427</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -37322,7 +36739,7 @@ except Exception as ERROR:
 <autoTerminate>false</autoTerminate>
 <name>split</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.SplitJson</type>
                         </processors>
@@ -37330,8 +36747,8 @@ except Exception as ERROR:
                             <id>99f08277-1879-3aa2-0000-000000000000</id>
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <position>
-<x>210.29929176536245</x>
-<y>154.75012504474978</y>
+<x>219.30912263231932</x>
+<y>155.92982780353884</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -37368,6 +36785,12 @@ except Exception as ERROR:
         </value>
     </entry>
     <entry>
+        <key>column_filter</key>
+        <value>
+            <name>column_filter</name>
+        </value>
+    </entry>
+    <entry>
         <key>columns</key>
         <value>
             <name>columns</name>
@@ -37377,6 +36800,12 @@ except Exception as ERROR:
         <key>columns_description</key>
         <value>
             <name>columns_description</name>
+        </value>
+    </entry>
+    <entry>
+        <key>file_action</key>
+        <value>
+            <name>file_action</name>
         </value>
     </entry>
     <entry>
@@ -37419,12 +36848,20 @@ except Exception as ERROR:
         <value>empty string</value>
     </entry>
     <entry>
+        <key>column_filter</key>
+        <value>$.column_filter</value>
+    </entry>
+    <entry>
         <key>columns</key>
         <value>$.column_list[*].name</value>
     </entry>
     <entry>
         <key>columns_description</key>
         <value>$.column_list[*].description</value>
+    </entry>
+    <entry>
+        <key>file_action</key>
+        <value>$.file_action</value>
     </entry>
     <entry>
         <key>table_description</key>
@@ -37458,7 +36895,7 @@ except Exception as ERROR:
 <autoTerminate>true</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
                         </processors>
@@ -37466,8 +36903,8 @@ except Exception as ERROR:
                             <id>a511b88f-7dcc-37c5-0000-000000000000</id>
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <position>
-<x>210.29929176536245</x>
-<y>353.10578612754557</y>
+<x>219.30912263231932</x>
+<y>311.81644896934245</y>
                             </position>
                             <bundle>
 <artifact>nifi-update-attribute-nar</artifact>
@@ -37495,6 +36932,12 @@ except Exception as ERROR:
         <key>Stateful Variables Initial Value</key>
         <value>
             <name>Stateful Variables Initial Value</name>
+        </value>
+    </entry>
+    <entry>
+        <key>database.name</key>
+        <value>
+            <name>database.name</name>
         </value>
     </entry>
     <entry>
@@ -37537,6 +36980,10 @@ except Exception as ERROR:
         <key>Stateful Variables Initial Value</key>
     </entry>
     <entry>
+        <key>database.name</key>
+        <value>${db_user}_${db_name}</value>
+    </entry>
+    <entry>
         <key>filename</key>
         <value>${table_name}</value>
     </entry>
@@ -37564,7 +37011,7 @@ except Exception as ERROR:
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
@@ -37572,7 +37019,7 @@ except Exception as ERROR:
                             <id>f25abbb9-327c-3634-0000-000000000000</id>
                             <parentGroupId>32982135-42c9-3684-0000-000000000000</parentGroupId>
                             <position>
-<x>625.8765573353357</x>
+<x>219.30912263231932</x>
 <y>-152.5455917446812</y>
                             </position>
                             <bundle>
@@ -37622,6 +37069,12 @@ except Exception as ERROR:
         </value>
     </entry>
     <entry>
+        <key>db_user</key>
+        <value>
+            <name>db_user</name>
+        </value>
+    </entry>
+    <entry>
         <key>schema</key>
         <value>
             <name>schema</name>
@@ -37657,6 +37110,10 @@ except Exception as ERROR:
         <value>$.db_type</value>
     </entry>
     <entry>
+        <key>db_user</key>
+        <value>$.db_user</value>
+    </entry>
+    <entry>
         <key>schema</key>
         <value>$.catalog</value>
     </entry>
@@ -37680,7 +37137,7 @@ except Exception as ERROR:
 <autoTerminate>true</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
                         </processors>
@@ -37692,8 +37149,8 @@ except Exception as ERROR:
                     <id>52bba77f-1a5b-3033-0000-000000000000</id>
                     <parentGroupId>db8a3cd1-e14a-34d0-0000-000000000000</parentGroupId>
                     <position>
-                        <x>-535.992155919914</x>
-                        <y>463.98099676094535</y>
+                        <x>-562.785124669914</x>
+                        <y>458.62235418282035</y>
                     </position>
                     <comments></comments>
                     <contents>
@@ -41984,7 +41441,7 @@ except Exception as ERROR:
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>mssqlTables</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>INPUT_PORT</type>
                         </inputPorts>
                         <outputPorts>
@@ -42010,7 +41467,7 @@ except Exception as ERROR:
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
                             <name>schema</name>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <type>OUTPUT_PORT</type>
                         </outputPorts>
                         <processors>
@@ -42080,7 +41537,7 @@ except Exception as ERROR:
 <properties>
     <entry>
         <key>Database Connection Pooling Service</key>
-        <value>6d43fe1e-976e-35a4-0000-000000000000</value>
+        <value>f61c29e9-0c4a-358b-0000-000000000000</value>
     </entry>
     <entry>
         <key>SQL select query</key>
@@ -42122,7 +41579,7 @@ except Exception as ERROR:
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.ExecuteSQL</type>
                         </processors>
@@ -42193,7 +41650,7 @@ except Exception as ERROR:
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.avro.ConvertAvroToJSON</type>
                         </processors>
@@ -42269,7 +41726,7 @@ except Exception as ERROR:
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
@@ -42345,7 +41802,7 @@ except Exception as ERROR:
 <autoTerminate>false</autoTerminate>
 <name>success</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
@@ -42461,7 +41918,7 @@ except Exception as ERROR:
 <autoTerminate>true</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.EvaluateJsonPath</type>
                         </processors>
@@ -42523,7 +41980,7 @@ except Exception as ERROR:
 <autoTerminate>false</autoTerminate>
 <name>unmatched</name>
                             </relationships>
-                            <state>RUNNING</state>
+                            <state>STOPPED</state>
                             <style/>
                             <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
                         </processors>
@@ -43376,11 +42833,32 @@ except Exception as ERROR:
                     <id>e1608a99-4490-3a43-0000-000000000000</id>
                     <parentGroupId>db8a3cd1-e14a-34d0-0000-000000000000</parentGroupId>
                     <position>
-                        <x>1113.6768283943275</x>
-                        <y>622.1362796717799</y>
+                        <x>1120.37519265214</x>
+                        <y>610.0794559413112</y>
                     </position>
                     <comments></comments>
                     <contents>
+                        <connections>
+                            <id>022db644-dcbc-3a42-0000-000000000000</id>
+                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>393cd21b-ddd6-3c76-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>5bc7a8c0-3b00-33e7-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
                         <connections>
                             <id>161422cf-79c0-3187-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
@@ -43409,7 +42887,7 @@ except Exception as ERROR:
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                             <destination>
 <groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
-<id>7e980f96-dd47-35d4-0000-000000000000</id>
+<id>11cb1937-c2e8-3310-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
@@ -43445,6 +42923,69 @@ except Exception as ERROR:
                             <zIndex>0</zIndex>
                         </connections>
                         <connections>
+                            <id>34f9a411-555f-3216-0000-000000000000</id>
+                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>41d1136a-1f0d-366a-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>2d7f3b64-0c0f-390e-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>4d07acc3-2737-3881-0000-000000000000</id>
+                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>a9d30630-926b-38be-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>merged</selectedRelationships>
+                            <source>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>11cb1937-c2e8-3310-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>4e2008d0-c909-341a-0000-000000000000</id>
+                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>2d7f3b64-0c0f-390e-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>append</selectedRelationships>
+                            <source>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>a9d30630-926b-38be-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
                             <id>5bf3baec-6308-39c3-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
@@ -43471,8 +43012,8 @@ except Exception as ERROR:
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                             <bends>
-<x>1275.7091064453125</x>
-<y>946.260009765625</y>
+<x>1234.59228515625</x>
+<y>733.419677734375</y>
                             </bends>
                             <destination>
 <groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
@@ -43507,6 +43048,27 @@ except Exception as ERROR:
 <groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
 <id>d37f3830-9e46-3185-0000-000000000000</id>
 <type>INPUT_PORT</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>b4b1efab-086e-3c2b-0000-000000000000</id>
+                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>d6bb86e7-7f71-3a9c-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>replace</selectedRelationships>
+                            <source>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>a9d30630-926b-38be-0000-000000000000</id>
+<type>PROCESSOR</type>
                             </source>
                             <zIndex>0</zIndex>
                         </connections>
@@ -43558,8 +43120,12 @@ except Exception as ERROR:
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                             <bends>
-<x>1275.7093505859375</x>
-<y>1142.85107421875</y>
+<x>809.0256958007812</x>
+<y>1013.9454956054688</y>
+                            </bends>
+                            <bends>
+<x>1243.0577392578125</x>
+<y>1127.1298828125</y>
                             </bends>
                             <destination>
 <groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
@@ -43567,12 +43133,33 @@ except Exception as ERROR:
 <type>OUTPUT_PORT</type>
                             </destination>
                             <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>0</labelIndex>
+                            <labelIndex>1</labelIndex>
                             <name></name>
                             <selectedRelationships>failure</selectedRelationships>
                             <source>
 <groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
 <id>cef23ba1-c7ab-37bd-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </source>
+                            <zIndex>0</zIndex>
+                        </connections>
+                        <connections>
+                            <id>c2138b4c-6b83-39e1-0000-000000000000</id>
+                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
+                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                            <destination>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>6623fe94-dac0-3e0f-0000-000000000000</id>
+<type>PROCESSOR</type>
+                            </destination>
+                            <flowFileExpiration>0 sec</flowFileExpiration>
+                            <labelIndex>1</labelIndex>
+                            <name></name>
+                            <selectedRelationships>success</selectedRelationships>
+                            <source>
+<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
+<id>393cd21b-ddd6-3c76-0000-000000000000</id>
 <type>PROCESSOR</type>
                             </source>
                             <zIndex>0</zIndex>
@@ -43641,27 +43228,6 @@ except Exception as ERROR:
                             <zIndex>0</zIndex>
                         </connections>
                         <connections>
-                            <id>e87ac3ce-5a2a-32ac-0000-000000000000</id>
-                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
-                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <destination>
-<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
-<id>6623fe94-dac0-3e0f-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </destination>
-                            <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
-                            <name></name>
-                            <selectedRelationships>success</selectedRelationships>
-                            <source>
-<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
-<id>5bc7a8c0-3b00-33e7-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </source>
-                            <zIndex>0</zIndex>
-                        </connections>
-                        <connections>
                             <id>f0ed0a18-72bd-342c-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
@@ -43682,205 +43248,12 @@ except Exception as ERROR:
                             </source>
                             <zIndex>0</zIndex>
                         </connections>
-                        <connections>
-                            <id>f195b253-eec6-3f34-0000-000000000000</id>
-                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
-                            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-                            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                            <destination>
-<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
-<id>d6bb86e7-7f71-3a9c-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </destination>
-                            <flowFileExpiration>0 sec</flowFileExpiration>
-                            <labelIndex>1</labelIndex>
-                            <name></name>
-                            <selectedRelationships>merged</selectedRelationships>
-                            <source>
-<groupId>e1608a99-4490-3a43-0000-000000000000</groupId>
-<id>7e980f96-dd47-35d4-0000-000000000000</id>
-<type>PROCESSOR</type>
-                            </source>
-                            <zIndex>0</zIndex>
-                        </connections>
-                        <controllerServices>
-                            <id>d2c3465b-5667-3199-0000-000000000000</id>
-                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
-                            <bundle>
-<artifact>nifi-record-serialization-services-nar</artifact>
-<group>org.apache.nifi</group>
-<version>1.7.0.3.2.0.0-520</version>
-                            </bundle>
-                            <comments></comments>
-                            <descriptors>
-<entry>
-    <key>schema-access-strategy</key>
-    <value>
-        <name>schema-access-strategy</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-registry</key>
-    <value>
-        <identifiesControllerService>org.apache.nifi.schemaregistry.services.SchemaRegistry</identifiesControllerService>
-        <name>schema-registry</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-name</key>
-    <value>
-        <name>schema-name</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-version</key>
-    <value>
-        <name>schema-version</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-branch</key>
-    <value>
-        <name>schema-branch</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-text</key>
-    <value>
-        <name>schema-text</name>
-    </value>
-</entry>
-                            </descriptors>
-                            <name>AvroReader</name>
-                            <persistsState>false</persistsState>
-                            <properties>
-<entry>
-    <key>schema-access-strategy</key>
-    <value>embedded-avro-schema</value>
-</entry>
-<entry>
-    <key>schema-registry</key>
-</entry>
-<entry>
-    <key>schema-name</key>
-    <value>${schema.name}</value>
-</entry>
-<entry>
-    <key>schema-version</key>
-</entry>
-<entry>
-    <key>schema-branch</key>
-</entry>
-<entry>
-    <key>schema-text</key>
-    <value>${avro.schema}</value>
-</entry>
-                            </properties>
-                            <state>ENABLED</state>
-                            <type>org.apache.nifi.avro.AvroReader</type>
-                        </controllerServices>
-                        <controllerServices>
-                            <id>f25dc509-0aea-3c0e-0000-000000000000</id>
-                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
-                            <bundle>
-<artifact>nifi-record-serialization-services-nar</artifact>
-<group>org.apache.nifi</group>
-<version>1.7.0.3.2.0.0-520</version>
-                            </bundle>
-                            <comments></comments>
-                            <descriptors>
-<entry>
-    <key>Schema Write Strategy</key>
-    <value>
-        <name>Schema Write Strategy</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-access-strategy</key>
-    <value>
-        <name>schema-access-strategy</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-registry</key>
-    <value>
-        <identifiesControllerService>org.apache.nifi.schemaregistry.services.SchemaRegistry</identifiesControllerService>
-        <name>schema-registry</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-name</key>
-    <value>
-        <name>schema-name</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-version</key>
-    <value>
-        <name>schema-version</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-branch</key>
-    <value>
-        <name>schema-branch</name>
-    </value>
-</entry>
-<entry>
-    <key>schema-text</key>
-    <value>
-        <name>schema-text</name>
-    </value>
-</entry>
-<entry>
-    <key>compression-format</key>
-    <value>
-        <name>compression-format</name>
-    </value>
-</entry>
-                            </descriptors>
-                            <name>AvroRecordSetWriter</name>
-                            <persistsState>false</persistsState>
-                            <properties>
-<entry>
-    <key>Schema Write Strategy</key>
-    <value>avro-embedded</value>
-</entry>
-<entry>
-    <key>schema-access-strategy</key>
-    <value>inherit-record-schema</value>
-</entry>
-<entry>
-    <key>schema-registry</key>
-</entry>
-<entry>
-    <key>schema-name</key>
-    <value>${schema.name}</value>
-</entry>
-<entry>
-    <key>schema-version</key>
-</entry>
-<entry>
-    <key>schema-branch</key>
-</entry>
-<entry>
-    <key>schema-text</key>
-    <value>${avro.schema}</value>
-</entry>
-<entry>
-    <key>compression-format</key>
-    <value>NONE</value>
-</entry>
-                            </properties>
-                            <state>ENABLED</state>
-                            <type>org.apache.nifi.avro.AvroRecordSetWriter</type>
-                        </controllerServices>
                         <inputPorts>
                             <id>d37f3830-9e46-3185-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
 <x>793.5674592398391</x>
-<y>247.69363329983275</y>
+<y>237.96960375881713</y>
                             </position>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
@@ -43892,8 +43265,8 @@ except Exception as ERROR:
                             <id>5c62a2fa-2197-3dab-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>821.42684336258</x>
-<y>1887.330012183958</y>
+<x>191.21507140864338</x>
+<y>1609.1865795667704</y>
                             </position>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
@@ -43918,8 +43291,8 @@ except Exception as ERROR:
                             <id>ed0bd080-a20d-3898-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>1156.117059396303</x>
-<y>1027.1596449934464</y>
+<x>1118.6281677947404</x>
+<y>851.8083266340714</y>
                             </position>
                             <comments></comments>
                             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
@@ -43931,8 +43304,8 @@ except Exception as ERROR:
                             <id>05e9774a-fc2f-30a1-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>749.3884634533588</x>
-<y>875.8632912726353</y>
+<x>750.8677745872913</x>
+<y>682.7211098761509</y>
                             </position>
                             <bundle>
 <artifact>nifi-scripting-nar</artifact>
@@ -44047,6 +43420,226 @@ except Exception as ERROR:
                             <type>org.apache.nifi.processors.script.ExecuteScript</type>
                         </processors>
                         <processors>
+                            <id>11cb1937-c2e8-3310-0000-000000000000</id>
+                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
+                            <position>
+<x>748.4491344505725</x>
+<y>842.2194062657818</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-standard-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Merge Strategy</key>
+        <value>
+            <name>Merge Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Merge Format</key>
+        <value>
+            <name>Merge Format</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Attribute Strategy</key>
+        <value>
+            <name>Attribute Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Correlation Attribute Name</key>
+        <value>
+            <name>Correlation Attribute Name</name>
+        </value>
+    </entry>
+    <entry>
+        <key>mergecontent-metadata-strategy</key>
+        <value>
+            <name>mergecontent-metadata-strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Minimum Number of Entries</key>
+        <value>
+            <name>Minimum Number of Entries</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum Number of Entries</key>
+        <value>
+            <name>Maximum Number of Entries</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Minimum Group Size</key>
+        <value>
+            <name>Minimum Group Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum Group Size</key>
+        <value>
+            <name>Maximum Group Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Max Bin Age</key>
+        <value>
+            <name>Max Bin Age</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Maximum number of Bins</key>
+        <value>
+            <name>Maximum number of Bins</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Delimiter Strategy</key>
+        <value>
+            <name>Delimiter Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Header File</key>
+        <value>
+            <name>Header File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Footer File</key>
+        <value>
+            <name>Footer File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Demarcator File</key>
+        <value>
+            <name>Demarcator File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Compression Level</key>
+        <value>
+            <name>Compression Level</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Keep Path</key>
+        <value>
+            <name>Keep Path</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Tar Modified Time</key>
+        <value>
+            <name>Tar Modified Time</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Merge Strategy</key>
+        <value>Defragment</value>
+    </entry>
+    <entry>
+        <key>Merge Format</key>
+        <value>Avro</value>
+    </entry>
+    <entry>
+        <key>Attribute Strategy</key>
+        <value>Keep Only Common Attributes</value>
+    </entry>
+    <entry>
+        <key>Correlation Attribute Name</key>
+    </entry>
+    <entry>
+        <key>mergecontent-metadata-strategy</key>
+        <value>Keep Only Common Metadata</value>
+    </entry>
+    <entry>
+        <key>Minimum Number of Entries</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>Maximum Number of Entries</key>
+        <value>1000</value>
+    </entry>
+    <entry>
+        <key>Minimum Group Size</key>
+        <value>0 B</value>
+    </entry>
+    <entry>
+        <key>Maximum Group Size</key>
+    </entry>
+    <entry>
+        <key>Max Bin Age</key>
+    </entry>
+    <entry>
+        <key>Maximum number of Bins</key>
+        <value>5</value>
+    </entry>
+    <entry>
+        <key>Delimiter Strategy</key>
+        <value>Filename</value>
+    </entry>
+    <entry>
+        <key>Header File</key>
+    </entry>
+    <entry>
+        <key>Footer File</key>
+    </entry>
+    <entry>
+        <key>Demarcator File</key>
+    </entry>
+    <entry>
+        <key>Compression Level</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>Keep Path</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>Tar Modified Time</key>
+        <value>${file.lastModifiedTime}</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>MergeContent</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>merged</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>original</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.standard.MergeContent</type>
+                        </processors>
+                        <processors>
                             <id>1ce91b05-ef43-3703-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
@@ -44123,11 +43716,285 @@ except Exception as ERROR:
                             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                         </processors>
                         <processors>
+                            <id>2d7f3b64-0c0f-390e-0000-000000000000</id>
+                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
+                            <position>
+<x>-112.47599912380588</x>
+<y>1099.6909691407045</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-hadoop-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Hadoop Configuration Resources</key>
+        <value>
+            <name>Hadoop Configuration Resources</name>
+        </value>
+    </entry>
+    <entry>
+        <key>kerberos-credentials-service</key>
+        <value>
+            <identifiesControllerService>org.apache.nifi.kerberos.KerberosCredentialsService</identifiesControllerService>
+            <name>kerberos-credentials-service</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Kerberos Principal</key>
+        <value>
+            <name>Kerberos Principal</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Kerberos Keytab</key>
+        <value>
+            <name>Kerberos Keytab</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Kerberos Relogin Period</key>
+        <value>
+            <name>Kerberos Relogin Period</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Additional Classpath Resources</key>
+        <value>
+            <name>Additional Classpath Resources</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Directory</key>
+        <value>
+            <name>Directory</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution Strategy</key>
+        <value>
+            <name>Conflict Resolution Strategy</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Block Size</key>
+        <value>
+            <name>Block Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>IO Buffer Size</key>
+        <value>
+            <name>IO Buffer Size</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Replication</key>
+        <value>
+            <name>Replication</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Permissions umask</key>
+        <value>
+            <name>Permissions umask</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+        <value>
+            <name>Remote Owner</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+        <value>
+            <name>Remote Group</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Compression codec</key>
+        <value>
+            <name>Compression codec</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Hadoop Configuration Resources</key>
+        <value>/etc/nifi/hdfs-site.xml,/etc/nifi/core-site.xml</value>
+    </entry>
+    <entry>
+        <key>kerberos-credentials-service</key>
+    </entry>
+    <entry>
+        <key>Kerberos Principal</key>
+    </entry>
+    <entry>
+        <key>Kerberos Keytab</key>
+    </entry>
+    <entry>
+        <key>Kerberos Relogin Period</key>
+        <value>4 hours</value>
+    </entry>
+    <entry>
+        <key>Additional Classpath Resources</key>
+    </entry>
+    <entry>
+        <key>Directory</key>
+        <value>${hdfs_path}</value>
+    </entry>
+    <entry>
+        <key>Conflict Resolution Strategy</key>
+        <value>append</value>
+    </entry>
+    <entry>
+        <key>Block Size</key>
+    </entry>
+    <entry>
+        <key>IO Buffer Size</key>
+    </entry>
+    <entry>
+        <key>Replication</key>
+    </entry>
+    <entry>
+        <key>Permissions umask</key>
+    </entry>
+    <entry>
+        <key>Remote Owner</key>
+    </entry>
+    <entry>
+        <key>Remote Group</key>
+    </entry>
+    <entry>
+        <key>Compression codec</key>
+        <value>NONE</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>PutHDFS</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.hadoop.PutHDFS</type>
+                        </processors>
+                        <processors>
+                            <id>393cd21b-ddd6-3c76-0000-000000000000</id>
+                            <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
+                            <position>
+<x>124.30670365362528</x>
+<y>362.46608968929854</y>
+                            </position>
+                            <bundle>
+<artifact>nifi-scripting-nar</artifact>
+<group>org.apache.nifi</group>
+<version>1.7.0.3.2.0.0-520</version>
+                            </bundle>
+                            <config>
+<bulletinLevel>WARN</bulletinLevel>
+<comments></comments>
+<concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+<descriptors>
+    <entry>
+        <key>Script Engine</key>
+        <value>
+            <name>Script Engine</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Script File</key>
+        <value>
+            <name>Script File</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Script Body</key>
+        <value>
+            <name>Script Body</name>
+        </value>
+    </entry>
+    <entry>
+        <key>Module Directory</key>
+        <value>
+            <name>Module Directory</name>
+        </value>
+    </entry>
+</descriptors>
+<executionNode>ALL</executionNode>
+<lossTolerant>false</lossTolerant>
+<penaltyDuration>30 sec</penaltyDuration>
+<properties>
+    <entry>
+        <key>Script Engine</key>
+        <value>Groovy</value>
+    </entry>
+    <entry>
+        <key>Script File</key>
+    </entry>
+    <entry>
+        <key>Script Body</key>
+        <value>flowFileList = session.get(100)
+noOfFiles=flowFileList.size()
+fileNumber=1
+if(!flowFileList.isEmpty()) {
+   flowFileList.each { flowFile -&gt; 
+	flowFile = session.putAttribute(flowFile, 'fragment.count', (String)noOfFiles)
+	flowFile = session.putAttribute(flowFile, 'fragment.index', (String)fileNumber)
+	session.transfer(flowFile, REL_SUCCESS)
+	fileNumber++
+   }
+}</value>
+    </entry>
+    <entry>
+        <key>Module Directory</key>
+        <value>/usr/hdf/3.2.0.0-520/nifi/lib</value>
+    </entry>
+</properties>
+<runDurationMillis>0</runDurationMillis>
+<schedulingPeriod>0 sec</schedulingPeriod>
+<schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+<yieldDuration>1 sec</yieldDuration>
+                            </config>
+                            <executionNodeRestricted>false</executionNodeRestricted>
+                            <name>ExecuteScript</name>
+                            <relationships>
+<autoTerminate>true</autoTerminate>
+<name>failure</name>
+                            </relationships>
+                            <relationships>
+<autoTerminate>false</autoTerminate>
+<name>success</name>
+                            </relationships>
+                            <state>STOPPED</state>
+                            <style/>
+                            <type>org.apache.nifi.processors.script.ExecuteScript</type>
+                        </processors>
+                        <processors>
                             <id>41d1136a-1f0d-366a-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>767.051238579304</x>
-<y>1693.4588672867271</y>
+<x>136.21507140864338</x>
+<y>1362.1053516617271</y>
                             </position>
                             <bundle>
 <artifact>nifi-update-attribute-nar</artifact>
@@ -44202,8 +44069,8 @@ except Exception as ERROR:
                             <id>5bc7a8c0-3b00-33e7-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>740.4473318615619</x>
-<y>332.59913111638525</y>
+<x>750.8677745872913</x>
+<y>362.46608968929854</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -44277,7 +44144,7 @@ except Exception as ERROR:
 <properties>
     <entry>
         <key>Database Connection Pooling Service</key>
-        <value>9fd7f0b6-28c7-3350-0000-000000000000</value>
+        <value>551ff0f7-3993-35c7-0000-000000000000</value>
     </entry>
     <entry>
         <key>db-fetch-db-type</key>
@@ -44293,6 +44160,7 @@ except Exception as ERROR:
     </entry>
     <entry>
         <key>Maximum-value Columns</key>
+        <value>${column_filter}</value>
     </entry>
     <entry>
         <key>Max Wait Time</key>
@@ -44332,8 +44200,8 @@ except Exception as ERROR:
                             <id>5d1553f2-e41d-3be3-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>1323.3218892706209</x>
-<y>618.3589159110184</y>
+<x>1346.2989400518709</x>
+<y>617.1496263602371</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -44394,8 +44262,8 @@ except Exception as ERROR:
                             <id>6623fe94-dac0-3e0f-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>737.5970835522689</x>
-<y>505.6024379605866</y>
+<x>750.8677745872913</x>
+<y>531.263418180137</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -44457,7 +44325,7 @@ except Exception as ERROR:
 <properties>
     <entry>
         <key>Database Connection Pooling Service</key>
-        <value>9fd7f0b6-28c7-3350-0000-000000000000</value>
+        <value>551ff0f7-3993-35c7-0000-000000000000</value>
     </entry>
     <entry>
         <key>SQL select query</key>
@@ -44506,8 +44374,8 @@ except Exception as ERROR:
                             <id>7336c3f5-127f-3053-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>746.1520449811687</x>
-<y>698.6441249621874</y>
+<x>124.30670365362528</x>
+<y>531.263418180137</y>
                             </position>
                             <bundle>
 <artifact>nifi-avro-nar</artifact>
@@ -44575,11 +44443,11 @@ except Exception as ERROR:
                             <type>org.apache.nifi.processors.avro.ExtractAvroMetadata</type>
                         </processors>
                         <processors>
-                            <id>7e980f96-dd47-35d4-0000-000000000000</id>
+                            <id>a9d30630-926b-38be-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>762.4474539318744</x>
-<y>1281.5991311163853</y>
+<x>136.21507140864338</x>
+<y>842.2194062657818</y>
                             </position>
                             <bundle>
 <artifact>nifi-standard-nar</artifact>
@@ -44592,71 +44460,21 @@ except Exception as ERROR:
 <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
 <descriptors>
     <entry>
-        <key>record-reader</key>
+        <key>Routing Strategy</key>
         <value>
-            <identifiesControllerService>org.apache.nifi.serialization.RecordReaderFactory</identifiesControllerService>
-            <name>record-reader</name>
+            <name>Routing Strategy</name>
         </value>
     </entry>
     <entry>
-        <key>record-writer</key>
+        <key>append</key>
         <value>
-            <identifiesControllerService>org.apache.nifi.serialization.RecordSetWriterFactory</identifiesControllerService>
-            <name>record-writer</name>
+            <name>append</name>
         </value>
     </entry>
     <entry>
-        <key>merge-strategy</key>
+        <key>replace</key>
         <value>
-            <name>merge-strategy</name>
-        </value>
-    </entry>
-    <entry>
-        <key>correlation-attribute-name</key>
-        <value>
-            <name>correlation-attribute-name</name>
-        </value>
-    </entry>
-    <entry>
-        <key>Attribute Strategy</key>
-        <value>
-            <name>Attribute Strategy</name>
-        </value>
-    </entry>
-    <entry>
-        <key>min-records</key>
-        <value>
-            <name>min-records</name>
-        </value>
-    </entry>
-    <entry>
-        <key>max-records</key>
-        <value>
-            <name>max-records</name>
-        </value>
-    </entry>
-    <entry>
-        <key>min-bin-size</key>
-        <value>
-            <name>min-bin-size</name>
-        </value>
-    </entry>
-    <entry>
-        <key>max-bin-size</key>
-        <value>
-            <name>max-bin-size</name>
-        </value>
-    </entry>
-    <entry>
-        <key>max-bin-age</key>
-        <value>
-            <name>max-bin-age</name>
-        </value>
-    </entry>
-    <entry>
-        <key>max.bin.count</key>
-        <value>
-            <name>max.bin.count</name>
+            <name>replace</name>
         </value>
     </entry>
 </descriptors>
@@ -44665,45 +44483,16 @@ except Exception as ERROR:
 <penaltyDuration>30 sec</penaltyDuration>
 <properties>
     <entry>
-        <key>record-reader</key>
-        <value>d2c3465b-5667-3199-0000-000000000000</value>
+        <key>Routing Strategy</key>
+        <value>Route to Property name</value>
     </entry>
     <entry>
-        <key>record-writer</key>
-        <value>f25dc509-0aea-3c0e-0000-000000000000</value>
+        <key>append</key>
+        <value>${file_action:toLower():contains("append")}</value>
     </entry>
     <entry>
-        <key>merge-strategy</key>
-        <value>Bin-Packing Algorithm</value>
-    </entry>
-    <entry>
-        <key>correlation-attribute-name</key>
-    </entry>
-    <entry>
-        <key>Attribute Strategy</key>
-        <value>Keep Only Common Attributes</value>
-    </entry>
-    <entry>
-        <key>min-records</key>
-        <value>1</value>
-    </entry>
-    <entry>
-        <key>max-records</key>
-        <value>100000000</value>
-    </entry>
-    <entry>
-        <key>min-bin-size</key>
-        <value>0 B</value>
-    </entry>
-    <entry>
-        <key>max-bin-size</key>
-    </entry>
-    <entry>
-        <key>max-bin-age</key>
-    </entry>
-    <entry>
-        <key>max.bin.count</key>
-        <value>10</value>
+        <key>replace</key>
+        <value>${file_action:toLower():contains("replace")}</value>
     </entry>
 </properties>
 <runDurationMillis>0</runDurationMillis>
@@ -44712,29 +44501,29 @@ except Exception as ERROR:
 <yieldDuration>1 sec</yieldDuration>
                             </config>
                             <executionNodeRestricted>false</executionNodeRestricted>
-                            <name>MergeRecord</name>
+                            <name>RouteOnAttribute</name>
                             <relationships>
-<autoTerminate>true</autoTerminate>
-<name>failure</name>
+<autoTerminate>false</autoTerminate>
+<name>append</name>
                             </relationships>
                             <relationships>
 <autoTerminate>false</autoTerminate>
-<name>merged</name>
+<name>replace</name>
                             </relationships>
                             <relationships>
 <autoTerminate>true</autoTerminate>
-<name>original</name>
+<name>unmatched</name>
                             </relationships>
                             <state>STOPPED</state>
                             <style/>
-                            <type>org.apache.nifi.processors.standard.MergeRecord</type>
+                            <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
                         </processors>
                         <processors>
                             <id>cef23ba1-c7ab-37bd-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>751.4474234142963</x>
-<y>1076.0991311163853</y>
+<x>124.30670365362528</x>
+<y>682.7211098761509</y>
                             </position>
                             <bundle>
 <artifact>nifi-kite-nar</artifact>
@@ -44815,8 +44604,8 @@ except Exception as ERROR:
                             <id>d6bb86e7-7f71-3a9c-0000-000000000000</id>
                             <parentGroupId>e1608a99-4490-3a43-0000-000000000000</parentGroupId>
                             <position>
-<x>770.4054257445669</x>
-<y>1493.8133264267096</y>
+<x>399.144225793395</x>
+<y>1099.6909691407045</y>
                             </position>
                             <bundle>
 <artifact>nifi-hadoop-nar</artifact>
@@ -45002,8 +44791,8 @@ except Exception as ERROR:
                     <id>e77e21a3-758e-361a-0000-000000000000</id>
                     <parentGroupId>db8a3cd1-e14a-34d0-0000-000000000000</parentGroupId>
                     <position>
-                        <x>1121.7241640455295</x>
-                        <y>295.05609473525647</y>
+                        <x>1119.0449648267795</x>
+                        <y>248.16839942275647</y>
                     </position>
                     <comments></comments>
                     <contents>
@@ -45363,7 +45152,7 @@ except Exception as ERROR:
 <properties>
     <entry>
         <key>Database Connection Pooling Service</key>
-        <value>9fd7f0b6-28c7-3350-0000-000000000000</value>
+        <value>551ff0f7-3993-35c7-0000-000000000000</value>
     </entry>
     <entry>
         <key>SQL select query</key>
@@ -45824,7 +45613,7 @@ except Exception as ERROR:
                         <autoTerminate>false</autoTerminate>
                         <name>success</name>
                     </relationships>
-                    <state>RUNNING</state>
+                    <state>STOPPED</state>
                     <style/>
                     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                 </processors>
@@ -45886,7 +45675,7 @@ except Exception as ERROR:
                         <autoTerminate>false</autoTerminate>
                         <name>unmatched</name>
                     </relationships>
-                    <state>RUNNING</state>
+                    <state>STOPPED</state>
                     <style/>
                     <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
                 </processors>
@@ -46200,7 +45989,7 @@ if (flowfile != None):
                         <autoTerminate>false</autoTerminate>
                         <name>unmatched</name>
                     </relationships>
-                    <state>RUNNING</state>
+                    <state>STOPPED</state>
                     <style/>
                     <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
                 </processors>
@@ -46430,7 +46219,7 @@ if (flowfile != None):
                         <autoTerminate>false</autoTerminate>
                         <name>success</name>
                     </relationships>
-                    <state>RUNNING</state>
+                    <state>STOPPED</state>
                     <style/>
                     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                 </processors>
@@ -47108,5 +46897,5 @@ if (flowfile != None):
             <variables/>
         </processGroups>
     </snippet>
-    <timestamp>11/05/2018 18:55:43 IST</timestamp>
+    <timestamp>11/08/2018 18:21:04 IST</timestamp>
 </template>
